@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F124C24C866B50023BC9F /* AppDelegate.swift */; };
+		A25F124F24C866B50023BC9F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F124E24C866B50023BC9F /* SceneDelegate.swift */; };
+		A25F125124C866B50023BC9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F125024C866B50023BC9F /* ViewController.swift */; };
+		A25F125424C866B50023BC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25F125224C866B50023BC9F /* Main.storyboard */; };
+		A25F125624C866BA0023BC9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25F125524C866BA0023BC9F /* Assets.xcassets */; };
+		A25F125924C866BA0023BC9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */; };
+		A25F126424C866BA0023BC9F /* SalahTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F126324C866BA0023BC9F /* SalahTrackerTests.swift */; };
+		A25F126F24C866BA0023BC9F /* SalahTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F126E24C866BA0023BC9F /* SalahTrackerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A25F126024C866BA0023BC9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A25F124124C866B50023BC9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A25F124824C866B50023BC9F;
+			remoteInfo = SalahTracker;
+		};
+		A25F126B24C866BA0023BC9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A25F124124C866B50023BC9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A25F124824C866B50023BC9F;
+			remoteInfo = SalahTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A25F124924C866B50023BC9F /* SalahTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25F124C24C866B50023BC9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A25F124E24C866B50023BC9F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A25F125024C866B50023BC9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A25F125324C866B50023BC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A25F125524C866BA0023BC9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A25F125824C866BA0023BC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A25F125A24C866BA0023BC9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A25F125F24C866BA0023BC9F /* SalahTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalahTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25F126324C866BA0023BC9F /* SalahTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTrackerTests.swift; sourceTree = "<group>"; };
+		A25F126524C866BA0023BC9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A25F126A24C866BA0023BC9F /* SalahTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SalahTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A25F126E24C866BA0023BC9F /* SalahTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTrackerUITests.swift; sourceTree = "<group>"; };
+		A25F127024C866BA0023BC9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A25F124624C866B50023BC9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F125C24C866BA0023BC9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F126724C866BA0023BC9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A25F124024C866B50023BC9F = {
+			isa = PBXGroup;
+			children = (
+				A25F124B24C866B50023BC9F /* SalahTracker */,
+				A25F126224C866BA0023BC9F /* SalahTrackerTests */,
+				A25F126D24C866BA0023BC9F /* SalahTrackerUITests */,
+				A25F124A24C866B50023BC9F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A25F124A24C866B50023BC9F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A25F124924C866B50023BC9F /* SalahTracker.app */,
+				A25F125F24C866BA0023BC9F /* SalahTrackerTests.xctest */,
+				A25F126A24C866BA0023BC9F /* SalahTrackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A25F124B24C866B50023BC9F /* SalahTracker */ = {
+			isa = PBXGroup;
+			children = (
+				A25F124C24C866B50023BC9F /* AppDelegate.swift */,
+				A25F124E24C866B50023BC9F /* SceneDelegate.swift */,
+				A25F125024C866B50023BC9F /* ViewController.swift */,
+				A25F125224C866B50023BC9F /* Main.storyboard */,
+				A25F125524C866BA0023BC9F /* Assets.xcassets */,
+				A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */,
+				A25F125A24C866BA0023BC9F /* Info.plist */,
+			);
+			path = SalahTracker;
+			sourceTree = "<group>";
+		};
+		A25F126224C866BA0023BC9F /* SalahTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A25F126324C866BA0023BC9F /* SalahTrackerTests.swift */,
+				A25F126524C866BA0023BC9F /* Info.plist */,
+			);
+			path = SalahTrackerTests;
+			sourceTree = "<group>";
+		};
+		A25F126D24C866BA0023BC9F /* SalahTrackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A25F126E24C866BA0023BC9F /* SalahTrackerUITests.swift */,
+				A25F127024C866BA0023BC9F /* Info.plist */,
+			);
+			path = SalahTrackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A25F124824C866B50023BC9F /* SalahTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A25F127324C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTracker" */;
+			buildPhases = (
+				A25F124524C866B50023BC9F /* Sources */,
+				A25F124624C866B50023BC9F /* Frameworks */,
+				A25F124724C866B50023BC9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SalahTracker;
+			productName = SalahTracker;
+			productReference = A25F124924C866B50023BC9F /* SalahTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A25F125E24C866BA0023BC9F /* SalahTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A25F127624C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTrackerTests" */;
+			buildPhases = (
+				A25F125B24C866BA0023BC9F /* Sources */,
+				A25F125C24C866BA0023BC9F /* Frameworks */,
+				A25F125D24C866BA0023BC9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A25F126124C866BA0023BC9F /* PBXTargetDependency */,
+			);
+			name = SalahTrackerTests;
+			productName = SalahTrackerTests;
+			productReference = A25F125F24C866BA0023BC9F /* SalahTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A25F126924C866BA0023BC9F /* SalahTrackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A25F127924C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTrackerUITests" */;
+			buildPhases = (
+				A25F126624C866BA0023BC9F /* Sources */,
+				A25F126724C866BA0023BC9F /* Frameworks */,
+				A25F126824C866BA0023BC9F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A25F126C24C866BA0023BC9F /* PBXTargetDependency */,
+			);
+			name = SalahTrackerUITests;
+			productName = SalahTrackerUITests;
+			productReference = A25F126A24C866BA0023BC9F /* SalahTrackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A25F124124C866B50023BC9F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Abdul Wahab";
+				TargetAttributes = {
+					A25F124824C866B50023BC9F = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					A25F125E24C866BA0023BC9F = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = A25F124824C866B50023BC9F;
+					};
+					A25F126924C866BA0023BC9F = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = A25F124824C866B50023BC9F;
+					};
+				};
+			};
+			buildConfigurationList = A25F124424C866B50023BC9F /* Build configuration list for PBXProject "SalahTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A25F124024C866B50023BC9F;
+			productRefGroup = A25F124A24C866B50023BC9F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A25F124824C866B50023BC9F /* SalahTracker */,
+				A25F125E24C866BA0023BC9F /* SalahTrackerTests */,
+				A25F126924C866BA0023BC9F /* SalahTrackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A25F124724C866B50023BC9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A25F125924C866BA0023BC9F /* LaunchScreen.storyboard in Resources */,
+				A25F125624C866BA0023BC9F /* Assets.xcassets in Resources */,
+				A25F125424C866B50023BC9F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F125D24C866BA0023BC9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F126824C866BA0023BC9F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A25F124524C866B50023BC9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A25F125124C866B50023BC9F /* ViewController.swift in Sources */,
+				A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */,
+				A25F124F24C866B50023BC9F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F125B24C866BA0023BC9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A25F126424C866BA0023BC9F /* SalahTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A25F126624C866BA0023BC9F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A25F126F24C866BA0023BC9F /* SalahTrackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A25F126124C866BA0023BC9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A25F124824C866B50023BC9F /* SalahTracker */;
+			targetProxy = A25F126024C866BA0023BC9F /* PBXContainerItemProxy */;
+		};
+		A25F126C24C866BA0023BC9F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A25F124824C866B50023BC9F /* SalahTracker */;
+			targetProxy = A25F126B24C866BA0023BC9F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A25F125224C866B50023BC9F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A25F125324C866B50023BC9F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A25F125824C866BA0023BC9F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A25F127124C866BA0023BC9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A25F127224C866BA0023BC9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A25F127424C866BA0023BC9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A25F127524C866BA0023BC9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A25F127724C866BA0023BC9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalahTracker.app/SalahTracker";
+			};
+			name = Debug;
+		};
+		A25F127824C866BA0023BC9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SalahTracker.app/SalahTracker";
+			};
+			name = Release;
+		};
+		A25F127A24C866BA0023BC9F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SalahTracker;
+			};
+			name = Debug;
+		};
+		A25F127B24C866BA0023BC9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SalahTrackerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTrackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SalahTracker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A25F124424C866B50023BC9F /* Build configuration list for PBXProject "SalahTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A25F127124C866BA0023BC9F /* Debug */,
+				A25F127224C866BA0023BC9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A25F127324C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A25F127424C866BA0023BC9F /* Debug */,
+				A25F127524C866BA0023BC9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A25F127624C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A25F127724C866BA0023BC9F /* Debug */,
+				A25F127824C866BA0023BC9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A25F127924C866BA0023BC9F /* Build configuration list for PBXNativeTarget "SalahTrackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A25F127A24C866BA0023BC9F /* Debug */,
+				A25F127B24C866BA0023BC9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A25F124124C866B50023BC9F /* Project object */;
+}
