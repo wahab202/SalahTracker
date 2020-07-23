@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9O-n4-zIM">
-                                <rect key="frame" x="80.5" y="194" width="253" height="147.5"/>
+                                <rect key="frame" x="80.5" y="179.5" width="253" height="147.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SALAH 🤲🏻 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHe-5V-Dvz">
                                         <rect key="frame" x="0.0" y="0.0" width="253" height="66"/>
@@ -40,15 +41,15 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-6j-YHd">
-                                <rect key="frame" x="32" y="458" width="350" height="84"/>
+                                <rect key="frame" x="20.5" y="557" width="373" height="84"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-fy-9BN">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av9-uD-lmc">
-                                        <rect key="frame" x="0.0" y="46" width="350" height="38"/>
+                                        <rect key="frame" x="0.0" y="46" width="373" height="38"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <state key="normal" title="START">
@@ -64,12 +65,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qBN-6j-YHd" secondAttribute="trailing" constant="32" id="9bf-3b-fTE"/>
+                            <constraint firstItem="qBN-6j-YHd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="EKv-3O-5YW"/>
                             <constraint firstItem="W9O-n4-zIM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UZ2-HA-YgT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qBN-6j-YHd" secondAttribute="bottom" constant="320" id="bZJ-Gf-pLp"/>
-                            <constraint firstItem="W9O-n4-zIM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="s1m-L0-lB4"/>
-                            <constraint firstItem="qBN-6j-YHd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="vFS-7F-ssj"/>
-                            <constraint firstItem="qBN-6j-YHd" firstAttribute="top" relation="lessThanOrEqual" secondItem="W9O-n4-zIM" secondAttribute="bottom" constant="144" id="wSG-D0-1Ch"/>
+                            <constraint firstItem="W9O-n4-zIM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="tW7-ZT-Hh9"/>
+                            <constraint firstItem="W9O-n4-zIM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" priority="750" constant="-200" id="vs0-G2-nHm"/>
+                            <constraint firstItem="qBN-6j-YHd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wRX-Rv-KjB"/>
+                            <constraint firstItem="qBN-6j-YHd" firstAttribute="top" secondItem="W9O-n4-zIM" secondAttribute="bottom" constant="230" id="wSG-D0-1Ch"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

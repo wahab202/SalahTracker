@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         printName()
+        nameField.delegate = self
     }
 
     let defaults = UserDefaults.standard
@@ -25,6 +26,11 @@ class ViewController: UIViewController {
     
     func printName(){
         print(defaults.string(forKey: "Name") ?? "Empty")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameField.resignFirstResponder()
+        return true
     }
     
 }
