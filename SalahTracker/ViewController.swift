@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     @IBAction func touchStart(_ sender: UIButton) {
         defaults.set(nameField.text,forKey: "Name")
-        
     }
     
     func printName(){
