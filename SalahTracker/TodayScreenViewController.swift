@@ -11,6 +11,7 @@ import UIKit
 class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) else { return UITableViewCell() }
-        cell.prayerLabel.text = array[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
+        cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
         return cell
     }
     
