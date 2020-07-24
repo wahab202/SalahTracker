@@ -1,0 +1,6 @@
+framework module Pods_SalahTracker_SalahTrackerUITests {
+  umbrella header "Pods-SalahTracker-SalahTrackerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

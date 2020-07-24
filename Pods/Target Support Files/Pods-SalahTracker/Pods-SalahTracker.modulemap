@@ -1,0 +1,6 @@
+framework module Pods_SalahTracker {
+  umbrella header "Pods-SalahTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - TPKeyboardAvoidingSwift (3.2)
+
+DEPENDENCIES:
+  - TPKeyboardAvoidingSwift
+
+SPEC REPOS:
+  trunk:
+    - TPKeyboardAvoidingSwift
+
+SPEC CHECKSUMS:
+  TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
+
+PODFILE CHECKSUM: 45952ddc648dbf8f882d101fba76c896ea160a8b
+
+COCOAPODS: 1.9.3

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -17,60 +17,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9O-n4-zIM">
-                                <rect key="frame" x="80.5" y="179.5" width="253" height="147.5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQa-qF-cgS" customClass="TPKeyboardAvoidingScrollView" customModule="TPKeyboardAvoidingSwift">
+                                <rect key="frame" x="1" y="44" width="412" height="818"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SALAH 🤲🏻 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHe-5V-Dvz">
-                                        <rect key="frame" x="0.0" y="0.0" width="253" height="66"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏱TRACKER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOi-nP-7lG">
-                                        <rect key="frame" x="2.5" y="69" width="248" height="55"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                        <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track and manage your prayers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh5-vz-V3G">
-                                        <rect key="frame" x="3" y="127" width="247.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="W9O-n4-zIM">
+                                        <rect key="frame" x="80" y="20" width="252" height="147.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SALAH 🤲🏻 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHe-5V-Dvz">
+                                                <rect key="frame" x="0.0" y="0.0" width="252" height="66"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏱TRACKER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOi-nP-7lG">
+                                                <rect key="frame" x="2" y="69" width="248" height="55"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="track and manage your prayers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uh5-vz-V3G">
+                                                <rect key="frame" x="2.5" y="127" width="247.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-6j-YHd">
+                                        <rect key="frame" x="20" y="397.5" width="372" height="84"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-fy-9BN">
+                                                <rect key="frame" x="0.0" y="0.0" width="372" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av9-uD-lmc">
+                                                <rect key="frame" x="0.0" y="46" width="372" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                <state key="normal" title="START">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="touchStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Av2-f7-k0A"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-6j-YHd">
-                                <rect key="frame" x="20.5" y="557" width="373" height="84"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NAME" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jmL-fy-9BN">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="38"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av9-uD-lmc">
-                                        <rect key="frame" x="0.0" y="46" width="373" height="38"/>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="START">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="touchStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Av2-f7-k0A"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="qBN-6j-YHd" firstAttribute="width" secondItem="AQa-qF-cgS" secondAttribute="width" multiplier="0.9" constant="1.3000000000000114" id="9kG-fV-Pgs"/>
+                                    <constraint firstItem="qBN-6j-YHd" firstAttribute="top" secondItem="W9O-n4-zIM" secondAttribute="bottom" constant="230" id="CwA-gv-BeK"/>
+                                    <constraint firstAttribute="bottom" secondItem="qBN-6j-YHd" secondAttribute="bottom" constant="336.5" id="KEe-LT-IZI"/>
+                                    <constraint firstItem="W9O-n4-zIM" firstAttribute="leading" secondItem="W82-UH-ZTo" secondAttribute="leading" constant="80" id="Mf3-MM-X13"/>
+                                    <constraint firstItem="W9O-n4-zIM" firstAttribute="top" secondItem="W82-UH-ZTo" secondAttribute="top" constant="20" id="V8q-Ge-zYS"/>
+                                    <constraint firstAttribute="trailing" secondItem="W9O-n4-zIM" secondAttribute="trailing" constant="80" id="Xxo-sB-Jt8"/>
+                                    <constraint firstItem="W9O-n4-zIM" firstAttribute="centerX" secondItem="AQa-qF-cgS" secondAttribute="centerX" id="Zgp-6A-bNm"/>
+                                    <constraint firstItem="qBN-6j-YHd" firstAttribute="leading" secondItem="W82-UH-ZTo" secondAttribute="leading" constant="20" id="fFm-fc-kyk"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Bz3-uh-x1y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="W82-UH-ZTo"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jmL-fy-9BN" id="kQa-DR-0FC"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qBN-6j-YHd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="EKv-3O-5YW"/>
-                            <constraint firstItem="W9O-n4-zIM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UZ2-HA-YgT"/>
-                            <constraint firstItem="W9O-n4-zIM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="tW7-ZT-Hh9"/>
-                            <constraint firstItem="W9O-n4-zIM" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" priority="750" constant="-200" id="vs0-G2-nHm"/>
-                            <constraint firstItem="qBN-6j-YHd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wRX-Rv-KjB"/>
-                            <constraint firstItem="qBN-6j-YHd" firstAttribute="top" secondItem="W9O-n4-zIM" secondAttribute="bottom" constant="230" id="wSG-D0-1Ch"/>
+                            <constraint firstItem="AQa-qF-cgS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1h5-ss-3D6"/>
+                            <constraint firstItem="AQa-qF-cgS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="W9y-Ui-wS3"/>
+                            <constraint firstItem="AQa-qF-cgS" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dUc-gc-3LC"/>
+                            <constraint firstItem="AQa-qF-cgS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fP0-nh-sGD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
