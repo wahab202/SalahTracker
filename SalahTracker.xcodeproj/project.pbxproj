@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		094B0BE5768FE976D517BDB1 /* Pods_SalahTracker_SalahTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DF35E47C849E4DC08D18E1 /* Pods_SalahTracker_SalahTrackerUITests.framework */; };
+		69BD4F5024CAF68E0018396F /* TodayPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */; };
 		A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05224CAD90F002845AA /* TodayScreenViewController.swift */; };
 		A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */; };
 		A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F124C24C866B50023BC9F /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		1E1F43F19505A1F7F83551AB /* Pods_SalahTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392C6729A31A40ADCB839EA0 /* Pods-SalahTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-SalahTrackerTests/Pods-SalahTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPrayerTableViewCell.swift; sourceTree = "<group>"; };
 		83DF35E47C849E4DC08D18E1 /* Pods_SalahTracker_SalahTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahTracker_SalahTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF6F82F9A3D56D1B593907B /* Pods-SalahTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTracker.debug.xcconfig"; path = "Target Support Files/Pods-SalahTracker/Pods-SalahTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		96FD60AFE44AF5F10CC37B8B /* Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SalahTracker-SalahTrackerUITests/Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				A25F125524C866BA0023BC9F /* Assets.xcassets */,
 				A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */,
 				A25F125A24C866BA0023BC9F /* Info.plist */,
+				69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */,
 			);
 			path = SalahTracker;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25F125124C866B50023BC9F /* ViewController.swift in Sources */,
+				69BD4F5024CAF68E0018396F /* TodayPrayerTableViewCell.swift in Sources */,
 				A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */,
 				A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */,
 				A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */,

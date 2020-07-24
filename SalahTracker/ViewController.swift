@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var nameField: UITextField!
+    
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,9 +21,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         nameField.delegate = self
     }
 
-    let defaults = UserDefaults.standard
-    @IBOutlet weak var nameField: UITextField!
-    
     @IBAction func touchStart(_ sender: UIButton) {
         defaults.set(nameField.text,forKey: "Name")
     }
