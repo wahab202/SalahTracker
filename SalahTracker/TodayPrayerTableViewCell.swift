@@ -10,6 +10,8 @@ import UIKit
 
 class TodayPrayerTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var prayedButton: UIButton!
+    @IBOutlet weak var qazaButton: UIButton!
     @IBOutlet weak var selectionButtonsView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var todayPrayerLabel: UILabel!
@@ -18,6 +20,8 @@ class TodayPrayerTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        prayedButton.layer.cornerRadius = 5.0
+        qazaButton.layer.cornerRadius = 5.0
     }
     
     @IBAction func qazaButtonPressed(_ sender: UIButton) {
