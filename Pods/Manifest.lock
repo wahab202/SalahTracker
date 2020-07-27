@@ -1,16 +1,26 @@
 PODS:
+  - Realm (5.3.2):
+    - Realm/Headers (= 5.3.2)
+  - Realm/Headers (5.3.2)
+  - RealmSwift (5.3.2):
+    - Realm (= 5.3.2)
   - TPKeyboardAvoidingSwift (3.2)
 
 DEPENDENCIES:
+  - RealmSwift
   - TPKeyboardAvoidingSwift
 
 SPEC REPOS:
   trunk:
+    - Realm
+    - RealmSwift
     - TPKeyboardAvoidingSwift
 
 SPEC CHECKSUMS:
+  Realm: c6794276ca8884808ba168a22f9d71362b170b85
+  RealmSwift: 42ec6cec3170aeeda407f797f07268a7d055ebc7
   TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
 
-PODFILE CHECKSUM: 45952ddc648dbf8f882d101fba76c896ea160a8b
+PODFILE CHECKSUM: 33c371869f64a59317cdac97c1813aa23ae2530f
 
 COCOAPODS: 1.9.3
