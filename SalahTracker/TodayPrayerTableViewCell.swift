@@ -47,6 +47,12 @@ class TodayPrayerTableViewCell: UITableViewCell {
         selectionButtonsView.isHidden = true
     }
     
+    func setStatusToDueInTime(time: String) {
+        statusLabel.text = "Due at "+time
+        statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        selectionButtonsView.isHidden = true
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state

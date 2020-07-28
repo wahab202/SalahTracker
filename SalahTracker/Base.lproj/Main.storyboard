@@ -243,21 +243,33 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ow-nr-4OJ">
-                                <rect key="frame" x="352" y="44" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ow-nr-4OJ">
+                                <rect key="frame" x="355" y="44" width="39" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.78392163212435229" green="0.07441470144905471" blue="0.039532636208130655" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="resetPrayers:" destination="dhB-vj-iLp" eventType="touchUpInside" id="f2n-lg-D5c"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIL" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gP9-04-2aw">
+                                <rect key="frame" x="20" y="49" width="26" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="VIV-M0-fDD" firstAttribute="top" secondItem="VXS-fX-EcC" secondAttribute="bottom" constant="39" id="NY3-T4-QTZ"/>
+                            <constraint firstItem="7Ow-nr-4OJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gP9-04-2aw" secondAttribute="trailing" constant="8" symbolic="YES" id="QzD-qN-Epv"/>
+                            <constraint firstItem="gP9-04-2aw" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" constant="5" id="ULj-el-87Q"/>
+                            <constraint firstItem="7Ow-nr-4OJ" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" id="bKv-95-oR2"/>
                             <constraint firstItem="VIV-M0-fDD" firstAttribute="leading" secondItem="jkc-2M-iNX" secondAttribute="leading" id="gCC-GI-JdJ"/>
+                            <constraint firstItem="gP9-04-2aw" firstAttribute="leading" secondItem="jkc-2M-iNX" secondAttribute="leading" constant="20" id="gcV-jX-m70"/>
                             <constraint firstItem="VXS-fX-EcC" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" constant="30" id="h2e-uA-8PO"/>
                             <constraint firstItem="jkc-2M-iNX" firstAttribute="bottom" secondItem="VIV-M0-fDD" secondAttribute="bottom" id="pFg-ub-6Ml"/>
+                            <constraint firstItem="jkc-2M-iNX" firstAttribute="trailing" secondItem="7Ow-nr-4OJ" secondAttribute="trailing" constant="20" id="psu-mO-mvA"/>
                             <constraint firstItem="jkc-2M-iNX" firstAttribute="trailing" secondItem="VIV-M0-fDD" secondAttribute="trailing" id="rcg-qk-7PC"/>
                             <constraint firstItem="VXS-fX-EcC" firstAttribute="centerX" secondItem="jkc-2M-iNX" secondAttribute="centerX" id="tK1-tf-rg3"/>
                         </constraints>
@@ -266,6 +278,7 @@
                     <tabBarItem key="tabBarItem" title="Today" image="doc" catalog="system" id="jgW-fP-6ld"/>
                     <connections>
                         <outlet property="tableView" destination="VIV-M0-fDD" id="1QH-o9-Qc5"/>
+                        <outlet property="usernameLabel" destination="gP9-04-2aw" id="K7e-4y-BaW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8e-jf-3Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,14 +11,27 @@ import RealmSwift
 
 class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
+    let formatter = DateFormatter()
+    let prayerTimes = [
+        Calendar.current.date(bySettingHour: 5, minute: 00, second: 0, of: Date())!,
+    Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
+    Calendar.current.date(bySettingHour: 17, minute: 30, second: 0, of: Date())!,
+    Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
+    Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
     var realm = try! Realm()
+    let defaults = UserDefaults.standard
+    let currentTime = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "NIL")
+        formatter.dateFormat = "HH:mm"
     }
     
     @IBAction func resetPrayers(_ sender: UIButton) {
@@ -36,6 +49,10 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         let status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
+        if currentTime < prayerTimes[indexPath.row] {
+            cell.setStatusToDueInTime(time: formatter.string(from: prayerTimes[indexPath.row]))
+            return cell
+        }
         if status == "Qaza" {
             cell.setStatusToQaza()
         }
