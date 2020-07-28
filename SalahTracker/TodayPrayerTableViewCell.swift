@@ -70,5 +70,4 @@ class TodayPrayerTableViewCell: UITableViewCell {
             realm.add(prayer)
         }
     }
-
 }

@@ -26,7 +26,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     let prayerTimes = [
         Calendar.current.date(bySettingHour: 5, minute: 00, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
-        Calendar.current.date(bySettingHour: 17, minute: 30, second: 0, of: Date())!,
+        Calendar.current.date(bySettingHour: 15, minute: 30, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
     let realm = try! Realm()
