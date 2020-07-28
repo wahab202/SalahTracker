@@ -9,19 +9,25 @@
 import UIKit
 import RealmSwift
 
-class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+enum PrayType: Int {
+    case prayed = 0
+    case qaza = 1
+    case jamat = 2
+}
 
+class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    
     let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
     let formatter = DateFormatter()
     let prayerTimes = [
         Calendar.current.date(bySettingHour: 5, minute: 00, second: 0, of: Date())!,
-    Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
-    Calendar.current.date(bySettingHour: 17, minute: 30, second: 0, of: Date())!,
-    Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
-    Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
+        Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
+        Calendar.current.date(bySettingHour: 17, minute: 30, second: 0, of: Date())!,
+        Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
+        Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
     var realm = try! Realm()
     let defaults = UserDefaults.standard
     let currentTime = Date()
@@ -30,15 +36,16 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "NIL")
-        formatter.dateFormat = "HH:mm"
+        tableView.tableFooterView = UIView()
+        usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "")
+        formatter.dateFormat = "hh:mm aa"
     }
     
     @IBAction func resetPrayers(_ sender: UIButton) {
         try! realm.write {
           realm.deleteAll()
         }
-        DispatchQueue.main.async { self.tableView.reloadData() }
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +60,9 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             cell.setStatusToDueInTime(time: formatter.string(from: prayerTimes[indexPath.row]))
             return cell
         }
-        if status == "Qaza" {
-            cell.setStatusToQaza()
+        PrayType(rawValue: 0)
+        if status == PrayType.prayed {
+            cell.setStatus(status: status)
         }
         if status == "Prayed" {
             cell.setStatusToPrayed()

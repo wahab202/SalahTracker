@@ -35,6 +35,15 @@ class TodayPrayerTableViewCell: UITableViewCell {
         addPrayerToDatabase(status: "Prayed")
     }
     
+    func setStatus(status: PrayType) {
+        switch status {
+        case .prayed:
+            print("")
+        case .qaza:
+            print("")
+        }
+    }
+    
     func setStatusToQaza() {
         statusLabel.text = "Prayer was Qaza"
         statusLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
@@ -48,7 +57,7 @@ class TodayPrayerTableViewCell: UITableViewCell {
     }
     
     func setStatusToDueInTime(time: String) {
-        statusLabel.text = "Due at "+time
+        statusLabel.text = "Due at " + time
         statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         selectionButtonsView.isHidden = true
     }
