@@ -21,8 +21,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         nameField.delegate = self
     }
 
-    @IBAction func touchStart(_ sender: UIButton) {
+    @IBAction func touchButtonPressed(_ sender: UIButton) {
         defaults.set(nameField.text,forKey: "Name")
+        let story = UIStoryboard(name: "Main", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        UIApplication.shared.windows.first?.rootViewController = vc
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     func printName(){

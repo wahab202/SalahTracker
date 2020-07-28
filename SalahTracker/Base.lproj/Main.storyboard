@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SalahTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewUserViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SalahTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="touchStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Av2-f7-k0A"/>
+                                                            <action selector="touchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Av2-f7-k0A"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -129,19 +129,67 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Va-88-ccB">
+                                <rect key="frame" x="0.0" y="173" width="414" height="640"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordTableViewCell" id="4AE-br-EUT" customClass="RecordTableViewCell" customModule="SalahTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4AE-br-EUT" id="z4H-Jn-NpV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjz-lL-fvX">
+                                                    <rect key="frame" x="20" y="9" width="43" height="24.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="records" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Om-FY-Raj">
+                                                    <rect key="frame" x="335" y="11" width="59" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cjz-lL-fvX" firstAttribute="top" secondItem="z4H-Jn-NpV" secondAttribute="top" constant="9" id="6Ci-Nt-Cce"/>
+                                                <constraint firstItem="7Om-FY-Raj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cjz-lL-fvX" secondAttribute="trailing" constant="50" id="VMH-iS-hbN"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Om-FY-Raj" secondAttribute="bottom" constant="12" id="XZV-fP-Xeg"/>
+                                                <constraint firstItem="cjz-lL-fvX" firstAttribute="leading" secondItem="z4H-Jn-NpV" secondAttribute="leading" constant="20" id="bzT-im-1JD"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Om-FY-Raj" secondAttribute="trailing" constant="20" id="dhN-CQ-BZg"/>
+                                                <constraint firstAttribute="bottom" secondItem="cjz-lL-fvX" secondAttribute="bottom" constant="10.5" id="pjH-Xg-EDM"/>
+                                                <constraint firstItem="7Om-FY-Raj" firstAttribute="top" secondItem="z4H-Jn-NpV" secondAttribute="top" constant="11" id="tmx-tQ-Ecp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="prayerDetailsLabel" destination="7Om-FY-Raj" id="Pdi-ae-lAE"/>
+                                            <outlet property="recordDateLabel" destination="cjz-lL-fvX" id="flz-wD-O9g"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="elu-NE-hnc" firstAttribute="trailing" secondItem="0Va-88-ccB" secondAttribute="trailing" id="RKI-58-Xp3"/>
+                            <constraint firstItem="0Va-88-ccB" firstAttribute="leading" secondItem="elu-NE-hnc" secondAttribute="leading" id="RVd-yh-9r8"/>
                             <constraint firstItem="rbs-Kb-U9h" firstAttribute="centerX" secondItem="elu-NE-hnc" secondAttribute="centerX" id="hHD-6O-FWy"/>
+                            <constraint firstItem="0Va-88-ccB" firstAttribute="top" secondItem="rbs-Kb-U9h" secondAttribute="bottom" constant="39" id="k9d-dj-l6A"/>
+                            <constraint firstItem="elu-NE-hnc" firstAttribute="bottom" secondItem="0Va-88-ccB" secondAttribute="bottom" id="ouu-9Z-MWa"/>
                             <constraint firstItem="rbs-Kb-U9h" firstAttribute="top" secondItem="elu-NE-hnc" secondAttribute="top" constant="30" id="xHu-ML-O66"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="elu-NE-hnc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Record" image="doc.text" catalog="system" id="SeB-nn-PLx"/>
+                    <connections>
+                        <outlet property="tableview" destination="0Va-88-ccB" id="bwX-vO-enj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amT-rT-F8S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="453"/>
+            <point key="canvasLocation" x="1989.8550724637682" y="452.67857142857139"/>
         </scene>
         <!--Today-->
         <scene sceneID="K1S-eH-AUn">
@@ -288,7 +336,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Dcp-DO-bim">
             <objects>
-                <tabBarController id="kvg-lY-Wtp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="kvg-lY-Wtp" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cEW-yo-M8S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

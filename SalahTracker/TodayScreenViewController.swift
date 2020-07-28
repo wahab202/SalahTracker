@@ -12,7 +12,8 @@ import RealmSwift
 enum PrayType: Int {
     case prayed = 0
     case qaza = 1
-    case jamat = 2
+    case due = 2
+    case noRecord = 3
 }
 
 class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -21,14 +22,14 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
-    let formatter = DateFormatter()
+    let dateFormatter = DateFormatter()
     let prayerTimes = [
         Calendar.current.date(bySettingHour: 5, minute: 00, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 17, minute: 30, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
         Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
-    var realm = try! Realm()
+    let realm = try! Realm()
     let defaults = UserDefaults.standard
     let currentTime = Date()
     
@@ -38,7 +39,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "")
-        formatter.dateFormat = "hh:mm aa"
+        dateFormatter.dateFormat = "hh:mm aa"
     }
     
     @IBAction func resetPrayers(_ sender: UIButton) {
@@ -53,19 +54,21 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
+        var status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
         if currentTime < prayerTimes[indexPath.row] {
-            cell.setStatusToDueInTime(time: formatter.string(from: prayerTimes[indexPath.row]))
-            return cell
+            status = PrayType.due
         }
-        PrayType(rawValue: 0)
-        if status == PrayType.prayed {
-            cell.setStatus(status: status)
-        }
-        if status == "Prayed" {
-            cell.setStatusToPrayed()
+        switch status {
+        case .prayed:
+            cell.setStatus(status: PrayType.prayed, dueTime: "")
+        case .qaza:
+            cell.setStatus(status: PrayType.qaza, dueTime: "")
+        case .noRecord:
+            cell.setStatus(status: PrayType.noRecord, dueTime: "")
+        case .due:
+            cell.setStatus(status: PrayType.due, dueTime: dateFormatter.string(from: prayerTimes[indexPath.row]))
         }
         return cell
     }
@@ -74,10 +77,10 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         return 70
     }
     
-    func getPrayerStatusFromDatabase(id:String) -> String {
+    func getPrayerStatusFromDatabase(id:String) -> PrayType {
         let prayerList = realm.objects(Prayer.self)
-        let prayer = prayerList.filter { $0.id == id }
-        return prayer.first?.status ?? "NIL"
+        let prayer = prayerList.filter { $0.id == id }.filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
+        return PrayType(rawValue: prayer.first?.status ?? 3) ?? PrayType.noRecord
     }
 
 }

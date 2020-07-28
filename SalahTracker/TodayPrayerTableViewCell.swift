@@ -16,6 +16,7 @@ class TodayPrayerTableViewCell: UITableViewCell {
     @IBOutlet weak var selectionButtonsView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var todayPrayerLabel: UILabel!
+    
     static let identifier = "TodayPrayerTableViewCell"
     let realm = try! Realm()
 
@@ -26,40 +27,33 @@ class TodayPrayerTableViewCell: UITableViewCell {
     }
     
     @IBAction func qazaButtonPressed(_ sender: UIButton) {
-        setStatusToQaza()
-        addPrayerToDatabase(status: "Qaza")
+        setStatus(status: PrayType.qaza, dueTime: "")
+        addPrayerToDatabase(status: PrayType.qaza)
     }
     
     @IBAction func prayedButtonPressed(_ sender: UIButton) {
-        setStatusToPrayed()
-        addPrayerToDatabase(status: "Prayed")
+        setStatus(status: PrayType.prayed, dueTime: "")
+        addPrayerToDatabase(status: PrayType.prayed)
     }
     
-    func setStatus(status: PrayType) {
+    func setStatus(status: PrayType, dueTime: String) {
         switch status {
         case .prayed:
-            print("")
+            statusLabel.text = "Prayed in time"
+            statusLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            selectionButtonsView.isHidden = true
         case .qaza:
-            print("")
+            statusLabel.text = "Prayer was Qaza"
+            statusLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            selectionButtonsView.isHidden = true
+        case .due:
+            statusLabel.text = "Due at " + dueTime
+            statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            selectionButtonsView.isHidden = true
+        case .noRecord:
+            statusLabel.text = ""
+            selectionButtonsView.isHidden = false
         }
-    }
-    
-    func setStatusToQaza() {
-        statusLabel.text = "Prayer was Qaza"
-        statusLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        selectionButtonsView.isHidden = true
-    }
-    
-    func setStatusToPrayed() {
-        statusLabel.text = "Prayed in time"
-        statusLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-        selectionButtonsView.isHidden = true
-    }
-    
-    func setStatusToDueInTime(time: String) {
-        statusLabel.text = "Due at " + time
-        statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        selectionButtonsView.isHidden = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -67,11 +61,11 @@ class TodayPrayerTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func addPrayerToDatabase(status:String){
+    func addPrayerToDatabase(status:PrayType){
         let prayer = Prayer()
         prayer.id = todayPrayerLabel.text ?? "Nil"
         prayer.date = Date()
-        prayer.status = status
+        prayer.status = status.rawValue
         try! realm.write {
             realm.add(prayer)
         }
