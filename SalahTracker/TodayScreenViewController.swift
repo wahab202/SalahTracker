@@ -66,10 +66,14 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         var status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
-        if prayerTimes.count > 1 {
-            if currentTime < prayerTimes[indexPath.row] {
-                status = PrayType.due
-            }
+        if prayerTimes.count == 1 {
+            cell.statusLabel.text = "Loading..."
+            cell.statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            cell.selectionButtonsView.isHidden = true
+            return cell
+        }
+        if currentTime < prayerTimes[indexPath.row] {
+            status = PrayType.due
         }
         switch status {
         case .prayed:
