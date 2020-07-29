@@ -25,6 +25,10 @@ class RecordScreenViewController: UIViewController, UITableViewDataSource, UITab
         dateFormatter.dateFormat = "dd-MM-yyyy"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableview.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }

@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Realm" "${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift" "${PODS_CONFIGURATION_BUILD_DIR}/TPKeyboardAvoidingSwift"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/Codable-Kit" "${PODS_CONFIGURATION_BUILD_DIR}/Realm" "${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON" "${PODS_CONFIGURATION_BUILD_DIR}/TPKeyboardAvoidingSwift"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Realm/Realm.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift/RealmSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TPKeyboardAvoidingSwift/TPKeyboardAvoidingSwift.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/AFNetworking/AFNetworking.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Codable-Kit/Codable_Kit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Realm/Realm.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RealmSwift/RealmSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftyJSON/SwiftyJSON.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TPKeyboardAvoidingSwift/TPKeyboardAvoidingSwift.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Realm/core"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "Realm" -framework "RealmSwift" -framework "Security" -framework "TPKeyboardAvoidingSwift"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"z" -framework "AFNetworking" -framework "Alamofire" -framework "CFNetwork" -framework "Codable_Kit" -framework "Realm" -framework "RealmSwift" -framework "Security" -framework "SwiftyJSON" -framework "TPKeyboardAvoidingSwift"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

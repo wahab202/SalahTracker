@@ -23,15 +23,11 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     
     let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
     let dateFormatter = DateFormatter()
-    let prayerTimes = [
-        Calendar.current.date(bySettingHour: 5, minute: 00, second: 0, of: Date())!,
-        Calendar.current.date(bySettingHour: 11, minute: 10, second: 0, of: Date())!,
-        Calendar.current.date(bySettingHour: 15, minute: 30, second: 0, of: Date())!,
-        Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!,
-        Calendar.current.date(bySettingHour: 21, minute: 00, second: 0, of: Date())!]
+    var prayerTimes = [Date()]
     let realm = try! Realm()
     let defaults = UserDefaults.standard
     let currentTime = Date()
+    let timings = PrayerTiming()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +36,19 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.tableFooterView = UIView()
         usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "")
         dateFormatter.dateFormat = "hh:mm aa"
+        // The mothod below uses closure as a completion handler to handle the async request to prayer timing API
+        NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings) in
+            timings?.formatTiming() // Removes extra characters (time format ) from the string for easier subscripting
+            self.prayerTimes.removeAll() //Empty the array to fill it again with prayer times
+            self.prayerTimes = [
+                Calendar.current.date(bySettingHour: Int(String((timings?.Fajr.prefix(2))!))!, minute: Int(String((timings?.Fajr.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Dhuhr.prefix(2))!))!, minute: Int(String((timings?.Dhuhr.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Asr.prefix(2))!))!, minute: Int(String((timings?.Asr.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Maghrib.prefix(2))!))!, minute: Int(String((timings?.Maghrib.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Isha.prefix(2))!))!, minute: Int(String((timings?.Isha.suffix(2))!))!, second: 0, of: Date())!,
+            ]
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func resetPrayers(_ sender: UIButton) {
@@ -57,8 +66,10 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         var status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
-        if currentTime < prayerTimes[indexPath.row] {
-            status = PrayType.due
+        if prayerTimes.count > 1 {
+            if currentTime < prayerTimes[indexPath.row] {
+                status = PrayType.due
+            }
         }
         switch status {
         case .prayed:

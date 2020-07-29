@@ -8,6 +8,10 @@ target 'SalahTracker' do
   # Pods for SalahTracker
   pod "TPKeyboardAvoidingSwift"
   pod 'RealmSwift'
+  pod 'Alamofire'
+  pod 'AFNetworking'
+  pod 'SwiftyJSON'
+  pod 'Codable-Kit'
 
   target 'SalahTrackerTests' do
     inherit! :search_paths

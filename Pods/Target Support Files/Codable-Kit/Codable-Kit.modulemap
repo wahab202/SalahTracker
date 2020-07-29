@@ -1,0 +1,6 @@
+framework module Codable_Kit {
+  umbrella header "Codable-Kit-umbrella.h"
+
+  export *
+  module * { export * }
+}
