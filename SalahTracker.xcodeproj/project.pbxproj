@@ -21,6 +21,7 @@
 		A276DDE924CEEA3800339B55 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276DDE824CEEA3800339B55 /* Prayer.swift */; };
 		A29F621024D1451300686A27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F620F24D1451300686A27 /* NetworkManager.swift */; };
 		A29F621424D16CEC00686A27 /* PrayerTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621324D16CEC00686A27 /* PrayerTiming.swift */; };
+		A29F621624D190BE00686A27 /* EventCellTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */; };
 		A2F370E124D02F59006BB3C6 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F370E024D02F59006BB3C6 /* RecordTableViewCell.swift */; };
 		DE1D6344ED40990F61010884 /* Pods_SalahTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9765DDCCDAE4969018ED635 /* Pods_SalahTracker.framework */; };
 		FDBB16085156AA27891C43F8 /* Pods_SalahTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E1F43F19505A1F7F83551AB /* Pods_SalahTrackerTests.framework */; };
@@ -68,6 +69,7 @@
 		A276DDE824CEEA3800339B55 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
 		A29F620F24D1451300686A27 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A29F621324D16CEC00686A27 /* PrayerTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTiming.swift; sourceTree = "<group>"; };
+		A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellTodayViewController.swift; sourceTree = "<group>"; };
 		A2F370E024D02F59006BB3C6 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		C27E229E049E849EF05BB767 /* Pods-SalahTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-SalahTrackerTests/Pods-SalahTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CAC8A19A6F4E6A0A9A16680E /* Pods-SalahTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTracker.release.xcconfig"; path = "Target Support Files/Pods-SalahTracker/Pods-SalahTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				A25F124C24C866B50023BC9F /* AppDelegate.swift */,
 				A25F125024C866B50023BC9F /* ViewController.swift */,
 				A25F125224C866B50023BC9F /* Main.storyboard */,
+				A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */,
 				A250D05224CAD90F002845AA /* TodayScreenViewController.swift */,
 				A2F370E024D02F59006BB3C6 /* RecordTableViewCell.swift */,
 				A276DDE824CEEA3800339B55 /* Prayer.swift */,
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A276DDE924CEEA3800339B55 /* Prayer.swift in Sources */,
+				A29F621624D190BE00686A27 /* EventCellTodayViewController.swift in Sources */,
 				A25F125124C866B50023BC9F /* ViewController.swift in Sources */,
 				A2F370E124D02F59006BB3C6 /* RecordTableViewCell.swift in Sources */,
 				69BD4F5024CAF68E0018396F /* TodayPrayerTableViewCell.swift in Sources */,

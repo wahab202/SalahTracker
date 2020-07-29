@@ -21,7 +21,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    let prayerNamesArray = ["Fajr","Dhuhr","Asr","Maghrib","Isha"]
+    let prayerNamesArray = ["Fajr","Sunrise ☀️","Dhuhr","Asr","Maghrib","Sunset 🌙","Isha"]
     let dateFormatter = DateFormatter()
     var prayerTimes = [Date()]
     let realm = try! Realm()
@@ -42,9 +42,11 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             self.prayerTimes.removeAll() //Empty the array to fill it again with prayer times
             self.prayerTimes = [
                 Calendar.current.date(bySettingHour: Int(String((timings?.Fajr.prefix(2))!))!, minute: Int(String((timings?.Fajr.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Sunrise.prefix(2))!))!, minute: Int(String((timings?.Sunrise.suffix(2))!))!, second: 0, of: Date())!,
                 Calendar.current.date(bySettingHour: Int(String((timings?.Dhuhr.prefix(2))!))!, minute: Int(String((timings?.Dhuhr.suffix(2))!))!, second: 0, of: Date())!,
                 Calendar.current.date(bySettingHour: Int(String((timings?.Asr.prefix(2))!))!, minute: Int(String((timings?.Asr.suffix(2))!))!, second: 0, of: Date())!,
                 Calendar.current.date(bySettingHour: Int(String((timings?.Maghrib.prefix(2))!))!, minute: Int(String((timings?.Maghrib.suffix(2))!))!, second: 0, of: Date())!,
+                Calendar.current.date(bySettingHour: Int(String((timings?.Sunset.prefix(2))!))!, minute: Int(String((timings?.Sunset.suffix(2))!))!, second: 0, of: Date())!,
                 Calendar.current.date(bySettingHour: Int(String((timings?.Isha.prefix(2))!))!, minute: Int(String((timings?.Isha.suffix(2))!))!, second: 0, of: Date())!,
             ]
             self.tableView.reloadData()
@@ -59,7 +61,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,6 +72,13 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             cell.statusLabel.text = "Loading..."
             cell.statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.selectionButtonsView.isHidden = true
+            return cell
+        }
+        if indexPath.row == 1 || indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCellTodayViewController
+            cell.timeLabel.text = prayerNamesArray[indexPath.row]
+            cell.iconLabel.text = dateFormatter.string(from: prayerTimes[indexPath.row])
+            cell.setColor(label: prayerNamesArray[indexPath.row])
             return cell
         }
         if currentTime < prayerTimes[indexPath.row] {
@@ -86,10 +95,6 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             cell.setStatus(status: PrayType.due, dueTime: dateFormatter.string(from: prayerTimes[indexPath.row]))
         }
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
     }
     
     func getPrayerStatusFromDatabase(id:String) -> PrayType {
