@@ -20,23 +20,30 @@ class NetworkManager {
     
     static var apiLink = "http://api.aladhan.com/v1/calendar?latitude=33.684422&longitude=73.047882&method=2&month="
     
-    static func getPrayerTimingsFromAPI(method:RequestMethod, completionHandler: @escaping (PrayerTiming?) -> ()) {
+    static func getPrayerTimingsFromAPI(method:RequestMethod, completionHandler: @escaping (PrayerTiming?,Int?) -> ()) {
         let date = Date()
         let calendar = Calendar.current
-        apiLink += String(calendar.component(.month, from: date)) + "&year=" + String(calendar.component(.year, from: date))
+        let mutatedLink = apiLink + String(calendar.component(.month, from: date)) + "&year=" + String(calendar.component(.year, from: date))
         if method == RequestMethod.alamofire {
-            AF.request(apiLink)
+            AF.request(mutatedLink)
                 .responseJSON { response in
-                    if response.data != nil {
+                    switch response.result {
+                    case .success( _):
                         do {
                             let json = try JSON(data: response.data!)
                             let todayData = json["data"][0]["timings"].rawString()
                             let todayJsonData = todayData?.data(using: .utf8)!
                             let timings = try! JSONDecoder().decode(PrayerTiming.self, from: todayJsonData!)
-                            completionHandler(timings as PrayerTiming)
+                            completionHandler(timings as PrayerTiming,0)
                         } catch {
+                            completionHandler(PrayerTiming(),1)
                             print(error)
                         }
+                    case .failure(_):
+                        completionHandler(PrayerTiming(),1)
+                    }
+                    if response.data != nil {
+                        
                     }
             }
         }

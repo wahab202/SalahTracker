@@ -20,14 +20,17 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var connectionFailedView: UIView!
+    @IBOutlet weak var retryApiRequestButton: UIButton!
     
     let prayerNamesArray = ["Fajr","Sunrise ☀️","Dhuhr","Asr","Maghrib","Sunset 🌙","Isha"]
     let dateFormatter = DateFormatter()
-    var prayerTimes = [Date()]
+    var prayerTimes: [Date]!
     let realm = try! Realm()
     let defaults = UserDefaults.standard
     let currentTime = Date()
     let timings = PrayerTiming()
+    var errorStatus = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +39,34 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.tableFooterView = UIView()
         usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "")
         dateFormatter.dateFormat = "hh:mm aa"
+        getPrayerTimingsFromApi()
+    }
+    
+    func getPrayerTimingsFromApi() {
         // The mothod below uses closure as a completion handler to handle the async request to prayer timing API
-        NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings) in
-            timings?.formatTiming() // Removes extra characters (time format ) from the string for easier subscripting
-            self.prayerTimes.removeAll() //Empty the array to fill it again with prayer times
-            self.prayerTimes = [
-                Calendar.current.date(bySettingHour: Int(String((timings?.Fajr.prefix(2))!))!, minute: Int(String((timings?.Fajr.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Sunrise.prefix(2))!))!, minute: Int(String((timings?.Sunrise.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Dhuhr.prefix(2))!))!, minute: Int(String((timings?.Dhuhr.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Asr.prefix(2))!))!, minute: Int(String((timings?.Asr.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Maghrib.prefix(2))!))!, minute: Int(String((timings?.Maghrib.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Sunset.prefix(2))!))!, minute: Int(String((timings?.Sunset.suffix(2))!))!, second: 0, of: Date())!,
-                Calendar.current.date(bySettingHour: Int(String((timings?.Isha.prefix(2))!))!, minute: Int(String((timings?.Isha.suffix(2))!))!, second: 0, of: Date())!,
-            ]
+        NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings,connectionError) in
+            if connectionError == 0 {
+                timings?.formatTiming() // Removes extra characters (time format) from the string for easier subscripting
+                self.prayerTimes = timings?.getTimingByDateArray()
+                self.connectionFailedView.isHidden = true
+                self.errorStatus = 0
+            } else {
+                self.errorStatus = 1
+                self.prayerTimes = [Date()]
+                self.retryApiRequestButton.setTitle("Retry", for: .normal)
+                self.retryApiRequestButton.isEnabled = true
+                self.connectionFailedView.isHidden = false
+            }
             self.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func retryApiRequest(_ sender: UIButton) {
+        retryApiRequestButton.setTitle("Retrying", for: .normal)
+        retryApiRequestButton.isEnabled = false
+        errorStatus = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0 ) {
+            self.getPrayerTimingsFromApi()
         }
     }
     
@@ -68,8 +85,8 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         var status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
-        if prayerTimes.count == 1 {
-            cell.statusLabel.text = "Loading..."
+        if prayerTimes == nil {
+            cell.statusLabel.text = errorStatus == 0 ? "Loading..." : ""
             cell.statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
             cell.selectionButtonsView.isHidden = true
             return cell
@@ -77,12 +94,14 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         if indexPath.row == 1 || indexPath.row == 5 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCellTodayViewController
             cell.timeLabel.text = prayerNamesArray[indexPath.row]
-            cell.iconLabel.text = dateFormatter.string(from: prayerTimes[indexPath.row])
+            cell.iconLabel.text = errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : ""
             cell.setColor(label: prayerNamesArray[indexPath.row])
             return cell
         }
-        if currentTime < prayerTimes[indexPath.row] {
-            status = PrayType.due
+        if errorStatus == 0 {
+            if currentTime < prayerTimes[indexPath.row] {
+                status = PrayType.due
+            }
         }
         switch status {
         case .prayed:
@@ -92,7 +111,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         case .noRecord:
             cell.setStatus(status: PrayType.noRecord, dueTime: "")
         case .due:
-            cell.setStatus(status: PrayType.due, dueTime: dateFormatter.string(from: prayerTimes[indexPath.row]))
+            cell.setStatus(status: PrayType.due, dueTime: errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : "")
         }
         return cell
     }

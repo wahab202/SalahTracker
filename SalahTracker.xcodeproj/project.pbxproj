@@ -144,19 +144,14 @@
 			isa = PBXGroup;
 			children = (
 				A25F124C24C866B50023BC9F /* AppDelegate.swift */,
-				A25F125024C866B50023BC9F /* ViewController.swift */,
+				A29F621A24D7F02A00686A27 /* Network */,
+				A29F621924D7F01500686A27 /* Prayers */,
+				A29F621824D7EFF900686A27 /* CellViews */,
+				A29F621724D7EFD700686A27 /* ViewControllers */,
 				A25F125224C866B50023BC9F /* Main.storyboard */,
-				A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */,
-				A250D05224CAD90F002845AA /* TodayScreenViewController.swift */,
-				A2F370E024D02F59006BB3C6 /* RecordTableViewCell.swift */,
-				A276DDE824CEEA3800339B55 /* Prayer.swift */,
-				A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */,
-				A29F620F24D1451300686A27 /* NetworkManager.swift */,
 				A25F125524C866BA0023BC9F /* Assets.xcassets */,
 				A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */,
 				A25F125A24C866BA0023BC9F /* Info.plist */,
-				69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */,
-				A29F621324D16CEC00686A27 /* PrayerTiming.swift */,
 			);
 			path = SalahTracker;
 			sourceTree = "<group>";
@@ -177,6 +172,43 @@
 				A25F127024C866BA0023BC9F /* Info.plist */,
 			);
 			path = SalahTrackerUITests;
+			sourceTree = "<group>";
+		};
+		A29F621724D7EFD700686A27 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A250D05224CAD90F002845AA /* TodayScreenViewController.swift */,
+				A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */,
+				A25F125024C866B50023BC9F /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A29F621824D7EFF900686A27 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */,
+				A2F370E024D02F59006BB3C6 /* RecordTableViewCell.swift */,
+				A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */,
+			);
+			path = CellViews;
+			sourceTree = "<group>";
+		};
+		A29F621924D7F01500686A27 /* Prayers */ = {
+			isa = PBXGroup;
+			children = (
+				A29F621324D16CEC00686A27 /* PrayerTiming.swift */,
+				A276DDE824CEEA3800339B55 /* Prayer.swift */,
+			);
+			path = Prayers;
+			sourceTree = "<group>";
+		};
+		A29F621A24D7F02A00686A27 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A29F620F24D1451300686A27 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		C247A601B030071C7FEA9109 /* Frameworks */ = {

@@ -205,9 +205,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VIV-M0-fDD">
-                                <rect key="frame" x="0.0" y="193" width="414" height="620"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VIV-M0-fDD">
+                                <rect key="frame" x="0.0" y="193" width="414" height="514"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="533" id="2hX-Dv-fHW"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TodayPrayerTableViewCell" id="rfG-TY-1Rx" customClass="TodayPrayerTableViewCell" customModule="SalahTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
@@ -344,18 +347,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wer-MI-KgK">
+                                <rect key="frame" x="0.0" y="734" width="414" height="79"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Oops! Couldn't get Salah Timings. Please check your connection." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT7-27-Fhm">
+                                        <rect key="frame" x="77" y="-13" width="260" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teM-bt-LCn">
+                                        <rect key="frame" x="137" y="41" width="140" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Retry"/>
+                                        <connections>
+                                            <action selector="retryApiRequest:" destination="dhB-vj-iLp" eventType="touchUpInside" id="gad-e6-uOM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="wer-MI-KgK" firstAttribute="leading" secondItem="jkc-2M-iNX" secondAttribute="leading" id="6U1-Rv-YN5"/>
                             <constraint firstItem="VIV-M0-fDD" firstAttribute="top" secondItem="VXS-fX-EcC" secondAttribute="bottom" constant="39" id="NY3-T4-QTZ"/>
                             <constraint firstItem="7Ow-nr-4OJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gP9-04-2aw" secondAttribute="trailing" constant="8" symbolic="YES" id="QzD-qN-Epv"/>
                             <constraint firstItem="gP9-04-2aw" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" constant="5" id="ULj-el-87Q"/>
+                            <constraint firstItem="jkc-2M-iNX" firstAttribute="trailing" secondItem="wer-MI-KgK" secondAttribute="trailing" id="Vg4-Kq-SyG"/>
                             <constraint firstItem="7Ow-nr-4OJ" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" id="bKv-95-oR2"/>
                             <constraint firstItem="VIV-M0-fDD" firstAttribute="leading" secondItem="jkc-2M-iNX" secondAttribute="leading" id="gCC-GI-JdJ"/>
                             <constraint firstItem="gP9-04-2aw" firstAttribute="leading" secondItem="jkc-2M-iNX" secondAttribute="leading" constant="20" id="gcV-jX-m70"/>
                             <constraint firstItem="VXS-fX-EcC" firstAttribute="top" secondItem="jkc-2M-iNX" secondAttribute="top" constant="50" id="h2e-uA-8PO"/>
-                            <constraint firstItem="jkc-2M-iNX" firstAttribute="bottom" secondItem="VIV-M0-fDD" secondAttribute="bottom" id="pFg-ub-6Ml"/>
+                            <constraint firstItem="wer-MI-KgK" firstAttribute="top" secondItem="VIV-M0-fDD" secondAttribute="bottom" constant="8" id="nCO-zX-FAX"/>
                             <constraint firstItem="jkc-2M-iNX" firstAttribute="trailing" secondItem="7Ow-nr-4OJ" secondAttribute="trailing" constant="20" id="psu-mO-mvA"/>
+                            <constraint firstItem="jkc-2M-iNX" firstAttribute="bottom" secondItem="wer-MI-KgK" secondAttribute="bottom" id="qtL-Ry-G9d"/>
                             <constraint firstItem="jkc-2M-iNX" firstAttribute="trailing" secondItem="VIV-M0-fDD" secondAttribute="trailing" id="rcg-qk-7PC"/>
                             <constraint firstItem="VXS-fX-EcC" firstAttribute="centerX" secondItem="jkc-2M-iNX" secondAttribute="centerX" id="tK1-tf-rg3"/>
                         </constraints>
@@ -363,6 +390,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Today" image="doc" catalog="system" id="jgW-fP-6ld"/>
                     <connections>
+                        <outlet property="connectionFailedView" destination="wer-MI-KgK" id="YsX-RW-zuZ"/>
+                        <outlet property="retryApiRequestButton" destination="teM-bt-LCn" id="fbU-ZQ-Qz3"/>
                         <outlet property="tableView" destination="VIV-M0-fDD" id="1QH-o9-Qc5"/>
                         <outlet property="usernameLabel" destination="gP9-04-2aw" id="K7e-4y-BaW"/>
                     </connections>
