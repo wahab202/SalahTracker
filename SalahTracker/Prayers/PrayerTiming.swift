@@ -19,7 +19,7 @@ class PrayerTiming: Codable {
     var Fajr:String = ""
     var Isha:String = ""
     
-    func formatTiming(){
+    func removeExtraCharacters(){
         Imsak = String(Imsak.prefix(5))
         Sunrise = String(Sunrise.prefix(5))
         Asr = String(Asr.prefix(5))

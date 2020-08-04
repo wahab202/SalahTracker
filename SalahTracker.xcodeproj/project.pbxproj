@@ -12,7 +12,7 @@
 		A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05224CAD90F002845AA /* TodayScreenViewController.swift */; };
 		A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */; };
 		A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F124C24C866B50023BC9F /* AppDelegate.swift */; };
-		A25F125124C866B50023BC9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F125024C866B50023BC9F /* ViewController.swift */; };
+		A25F125124C866B50023BC9F /* RegisterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F125024C866B50023BC9F /* RegisterScreenViewController.swift */; };
 		A25F125424C866B50023BC9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25F125224C866B50023BC9F /* Main.storyboard */; };
 		A25F125624C866BA0023BC9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25F125524C866BA0023BC9F /* Assets.xcassets */; };
 		A25F125924C866BA0023BC9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */; };
@@ -55,7 +55,7 @@
 		A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreenViewController.swift; sourceTree = "<group>"; };
 		A25F124924C866B50023BC9F /* SalahTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalahTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25F124C24C866B50023BC9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A25F125024C866B50023BC9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A25F125024C866B50023BC9F /* RegisterScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreenViewController.swift; sourceTree = "<group>"; };
 		A25F125324C866B50023BC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A25F125524C866BA0023BC9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A25F125824C866BA0023BC9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			children = (
 				A250D05224CAD90F002845AA /* TodayScreenViewController.swift */,
 				A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */,
-				A25F125024C866B50023BC9F /* ViewController.swift */,
+				A25F125024C866B50023BC9F /* RegisterScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -462,7 +462,7 @@
 			files = (
 				A276DDE924CEEA3800339B55 /* Prayer.swift in Sources */,
 				A29F621624D190BE00686A27 /* EventCellTodayViewController.swift in Sources */,
-				A25F125124C866B50023BC9F /* ViewController.swift in Sources */,
+				A25F125124C866B50023BC9F /* RegisterScreenViewController.swift in Sources */,
 				A2F370E124D02F59006BB3C6 /* RecordTableViewCell.swift in Sources */,
 				69BD4F5024CAF68E0018396F /* TodayPrayerTableViewCell.swift in Sources */,
 				A29F621024D1451300686A27 /* NetworkManager.swift in Sources */,

@@ -12,7 +12,7 @@ import RealmSwift
 enum PrayType: Int {
     case prayed = 0
     case qaza = 1
-    case due = 2
+    case notYetDue = 2
     case noRecord = 3
 }
 
@@ -46,7 +46,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         // The mothod below uses closure as a completion handler to handle the async request to prayer timing API
         NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings,connectionError) in
             if connectionError == 0 {
-                timings?.formatTiming() // Removes extra characters (time format) from the string for easier subscripting
+                timings?.removeExtraCharacters() // Removes extra characters (time format) from the string for easier subscripting
                 self.prayerTimes = timings?.getTimingByDateArray()
                 self.connectionFailedView.isHidden = true
                 self.errorStatus = 0
@@ -61,7 +61,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    @IBAction func retryApiRequest(_ sender: UIButton) {
+    @IBAction func retryApiRequestButtonPressed(_ sender: UIButton) {
         retryApiRequestButton.setTitle("Retrying", for: .normal)
         retryApiRequestButton.isEnabled = false
         errorStatus = 0
@@ -70,7 +70,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    @IBAction func resetPrayers(_ sender: UIButton) {
+    @IBAction func resetPrayersButtonPressed(_ sender: UIButton) {
         try! realm.write {
           realm.deleteAll()
         }
@@ -82,7 +82,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var status = getPrayerStatusFromDatabase(id: prayerNamesArray[indexPath.row])
+        var status = getTodaysPrayerStatusFromDatabase(for: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
         cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
         if prayerTimes == nil {
@@ -100,7 +100,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         }
         if errorStatus == 0 {
             if currentTime < prayerTimes[indexPath.row] {
-                status = PrayType.due
+                status = PrayType.notYetDue
             }
         }
         switch status {
@@ -110,15 +110,15 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             cell.setStatus(status: PrayType.qaza, dueTime: "")
         case .noRecord:
             cell.setStatus(status: PrayType.noRecord, dueTime: "")
-        case .due:
-            cell.setStatus(status: PrayType.due, dueTime: errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : "")
+        case .notYetDue:
+            cell.setStatus(status: PrayType.notYetDue, dueTime: errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : "")
         }
         return cell
     }
     
-    func getPrayerStatusFromDatabase(id:String) -> PrayType {
+    func getTodaysPrayerStatusFromDatabase(for prayerName:String) -> PrayType {
         let prayerList = realm.objects(Prayer.self)
-        let prayer = prayerList.filter { $0.id == id }.filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
+        let prayer = prayerList.filter { $0.id == prayerName }.filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
         return PrayType(rawValue: prayer.first?.status ?? 3) ?? PrayType.noRecord
     }
 

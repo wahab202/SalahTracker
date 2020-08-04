@@ -31,7 +31,7 @@ class NetworkManager {
                     case .success( _):
                         do {
                             let json = try JSON(data: response.data!)
-                            let todayData = json["data"][0]["timings"].rawString()
+                            let todayData = json["data"][Int(calendar.component(.month, from: date))]["timings"].rawString()
                             let todayJsonData = todayData?.data(using: .utf8)!
                             let timings = try! JSONDecoder().decode(PrayerTiming.self, from: todayJsonData!)
                             completionHandler(timings as PrayerTiming,0)
