@@ -71,8 +71,30 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func resetPrayersButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Reset Prayers", message: "How many prayers do you want to reset ?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Reset All", style: UIAlertAction.Style.default, handler: { (action) in
+            self.resetAllPrayersFromDatabase()
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Reset Today", style: UIAlertAction.Style.default, handler: { (action) in
+            self.resetTodayPrayersFromDatabase()
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert,animated: true,completion: nil)
+        
+    }
+    
+    func resetAllPrayersFromDatabase(){
+        try! self.realm.write {
+            self.realm.deleteAll()
+        }
+        self.tableView.reloadData()
+    }
+    
+    func resetTodayPrayersFromDatabase(){
+        let prayersToBeDeleted = realm.objects(Prayer.self).filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
         try! realm.write {
-          realm.deleteAll()
+            realm.delete(prayersToBeDeleted)
         }
         self.tableView.reloadData()
     }
