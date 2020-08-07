@@ -22,4 +22,9 @@ target 'SalahTracker' do
     # Pods for testing
   end
 
+  target 'NextPrayerDue' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end

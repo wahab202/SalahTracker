@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		094B0BE5768FE976D517BDB1 /* Pods_SalahTracker_SalahTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DF35E47C849E4DC08D18E1 /* Pods_SalahTracker_SalahTrackerUITests.framework */; };
+		1834A0C3C38A321DC489E58D /* Pods_NextPrayerDue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27AB5FF46C9C8392598557F0 /* Pods_NextPrayerDue.framework */; };
 		69BD4F5024CAF68E0018396F /* TodayPrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */; };
 		A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05224CAD90F002845AA /* TodayScreenViewController.swift */; };
 		A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A250D05424CAD9B9002845AA /* RecordScreenViewController.swift */; };
@@ -19,6 +20,14 @@
 		A25F126424C866BA0023BC9F /* SalahTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F126324C866BA0023BC9F /* SalahTrackerTests.swift */; };
 		A25F126F24C866BA0023BC9F /* SalahTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F126E24C866BA0023BC9F /* SalahTrackerUITests.swift */; };
 		A276DDE924CEEA3800339B55 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276DDE824CEEA3800339B55 /* Prayer.swift */; };
+		A28796E624DD5A66003CD152 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A28796E524DD5A66003CD152 /* NotificationCenter.framework */; };
+		A28796EC24DD5A66003CD152 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A28796EA24DD5A66003CD152 /* MainInterface.storyboard */; };
+		A28796F024DD5A66003CD152 /* NextPrayerDue.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A28796E424DD5A66003CD152 /* NextPrayerDue.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A28796F924DD6072003CD152 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28796E824DD5A66003CD152 /* TodayViewController.swift */; };
+		A28796FD24DD62EF003CD152 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F620F24D1451300686A27 /* NetworkManager.swift */; };
+		A28796FE24DD6303003CD152 /* PrayerTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621324D16CEC00686A27 /* PrayerTiming.swift */; };
+		A28796FF24DD6305003CD152 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276DDE824CEEA3800339B55 /* Prayer.swift */; };
+		A287970024DD6B71003CD152 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28796E824DD5A66003CD152 /* TodayViewController.swift */; };
 		A29F621024D1451300686A27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F620F24D1451300686A27 /* NetworkManager.swift */; };
 		A29F621424D16CEC00686A27 /* PrayerTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621324D16CEC00686A27 /* PrayerTiming.swift */; };
 		A29F621624D190BE00686A27 /* EventCellTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */; };
@@ -42,12 +51,36 @@
 			remoteGlobalIDString = A25F124824C866B50023BC9F;
 			remoteInfo = SalahTracker;
 		};
+		A28796EE24DD5A66003CD152 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A25F124124C866B50023BC9F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A28796E324DD5A66003CD152;
+			remoteInfo = NextPrayerDue;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A28796F124DD5A66003CD152 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A28796F024DD5A66003CD152 /* NextPrayerDue.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		015018C24A3217596383AEC8 /* Pods-NextPrayerDue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NextPrayerDue.release.xcconfig"; path = "Target Support Files/Pods-NextPrayerDue/Pods-NextPrayerDue.release.xcconfig"; sourceTree = "<group>"; };
 		1E1F43F19505A1F7F83551AB /* Pods_SalahTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27AB5FF46C9C8392598557F0 /* Pods_NextPrayerDue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NextPrayerDue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		392C6729A31A40ADCB839EA0 /* Pods-SalahTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-SalahTrackerTests/Pods-SalahTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		69BD4F4F24CAF68E0018396F /* TodayPrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPrayerTableViewCell.swift; sourceTree = "<group>"; };
+		832827CEEDE9DF26757B0A9C /* Pods-NextPrayerDue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NextPrayerDue.debug.xcconfig"; path = "Target Support Files/Pods-NextPrayerDue/Pods-NextPrayerDue.debug.xcconfig"; sourceTree = "<group>"; };
 		83DF35E47C849E4DC08D18E1 /* Pods_SalahTracker_SalahTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SalahTracker_SalahTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CF6F82F9A3D56D1B593907B /* Pods-SalahTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTracker.debug.xcconfig"; path = "Target Support Files/Pods-SalahTracker/Pods-SalahTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		96FD60AFE44AF5F10CC37B8B /* Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-SalahTracker-SalahTrackerUITests/Pods-SalahTracker-SalahTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +100,11 @@
 		A25F126E24C866BA0023BC9F /* SalahTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalahTrackerUITests.swift; sourceTree = "<group>"; };
 		A25F127024C866BA0023BC9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A276DDE824CEEA3800339B55 /* Prayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prayer.swift; sourceTree = "<group>"; };
+		A28796E424DD5A66003CD152 /* NextPrayerDue.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NextPrayerDue.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A28796E524DD5A66003CD152 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A28796E824DD5A66003CD152 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		A28796EB24DD5A66003CD152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		A28796ED24DD5A66003CD152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A29F620F24D1451300686A27 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A29F621324D16CEC00686A27 /* PrayerTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTiming.swift; sourceTree = "<group>"; };
 		A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellTodayViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +140,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A28796E124DD5A66003CD152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A28796E624DD5A66003CD152 /* NotificationCenter.framework in Frameworks */,
+				1834A0C3C38A321DC489E58D /* Pods_NextPrayerDue.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -114,6 +161,8 @@
 				ECF02B2CCB3B11B56FDC997F /* Pods-SalahTracker-SalahTrackerUITests.release.xcconfig */,
 				C27E229E049E849EF05BB767 /* Pods-SalahTrackerTests.debug.xcconfig */,
 				392C6729A31A40ADCB839EA0 /* Pods-SalahTrackerTests.release.xcconfig */,
+				832827CEEDE9DF26757B0A9C /* Pods-NextPrayerDue.debug.xcconfig */,
+				015018C24A3217596383AEC8 /* Pods-NextPrayerDue.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -124,6 +173,7 @@
 				A25F124B24C866B50023BC9F /* SalahTracker */,
 				A25F126224C866BA0023BC9F /* SalahTrackerTests */,
 				A25F126D24C866BA0023BC9F /* SalahTrackerUITests */,
+				A28796E724DD5A66003CD152 /* NextPrayerDue */,
 				A25F124A24C866B50023BC9F /* Products */,
 				25B3FD7A732A957108955320 /* Pods */,
 				C247A601B030071C7FEA9109 /* Frameworks */,
@@ -136,6 +186,7 @@
 				A25F124924C866B50023BC9F /* SalahTracker.app */,
 				A25F125F24C866BA0023BC9F /* SalahTrackerTests.xctest */,
 				A25F126A24C866BA0023BC9F /* SalahTrackerUITests.xctest */,
+				A28796E424DD5A66003CD152 /* NextPrayerDue.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,12 +194,12 @@
 		A25F124B24C866B50023BC9F /* SalahTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A25F124C24C866B50023BC9F /* AppDelegate.swift */,
 				A29F621A24D7F02A00686A27 /* Network */,
 				A29F621924D7F01500686A27 /* Prayers */,
 				A29F621824D7EFF900686A27 /* CellViews */,
 				A29F621724D7EFD700686A27 /* ViewControllers */,
 				A25F125224C866B50023BC9F /* Main.storyboard */,
+				A25F124C24C866B50023BC9F /* AppDelegate.swift */,
 				A25F125524C866BA0023BC9F /* Assets.xcassets */,
 				A25F125724C866BA0023BC9F /* LaunchScreen.storyboard */,
 				A25F125A24C866BA0023BC9F /* Info.plist */,
@@ -172,6 +223,16 @@
 				A25F127024C866BA0023BC9F /* Info.plist */,
 			);
 			path = SalahTrackerUITests;
+			sourceTree = "<group>";
+		};
+		A28796E724DD5A66003CD152 /* NextPrayerDue */ = {
+			isa = PBXGroup;
+			children = (
+				A28796E824DD5A66003CD152 /* TodayViewController.swift */,
+				A28796EA24DD5A66003CD152 /* MainInterface.storyboard */,
+				A28796ED24DD5A66003CD152 /* Info.plist */,
+			);
+			path = NextPrayerDue;
 			sourceTree = "<group>";
 		};
 		A29F621724D7EFD700686A27 /* ViewControllers */ = {
@@ -217,6 +278,8 @@
 				D9765DDCCDAE4969018ED635 /* Pods_SalahTracker.framework */,
 				83DF35E47C849E4DC08D18E1 /* Pods_SalahTracker_SalahTrackerUITests.framework */,
 				1E1F43F19505A1F7F83551AB /* Pods_SalahTrackerTests.framework */,
+				A28796E524DD5A66003CD152 /* NotificationCenter.framework */,
+				27AB5FF46C9C8392598557F0 /* Pods_NextPrayerDue.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -233,10 +296,12 @@
 				A25F124624C866B50023BC9F /* Frameworks */,
 				A25F124724C866B50023BC9F /* Resources */,
 				FBB59636E5B9AC0D802A85E0 /* [CP] Embed Pods Frameworks */,
+				A28796F124DD5A66003CD152 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A28796EF24DD5A66003CD152 /* PBXTargetDependency */,
 			);
 			name = SalahTracker;
 			productName = SalahTracker;
@@ -282,6 +347,24 @@
 			productReference = A25F126A24C866BA0023BC9F /* SalahTrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		A28796E324DD5A66003CD152 /* NextPrayerDue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A28796F424DD5A66003CD152 /* Build configuration list for PBXNativeTarget "NextPrayerDue" */;
+			buildPhases = (
+				A5B5A405C8BBC6E172348A11 /* [CP] Check Pods Manifest.lock */,
+				A28796E024DD5A66003CD152 /* Sources */,
+				A28796E124DD5A66003CD152 /* Frameworks */,
+				A28796E224DD5A66003CD152 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NextPrayerDue;
+			productName = NextPrayerDue;
+			productReference = A28796E424DD5A66003CD152 /* NextPrayerDue.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -303,6 +386,9 @@
 						CreatedOnToolsVersion = 11.6;
 						TestTargetID = A25F124824C866B50023BC9F;
 					};
+					A28796E324DD5A66003CD152 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 				};
 			};
 			buildConfigurationList = A25F124424C866B50023BC9F /* Build configuration list for PBXProject "SalahTracker" */;
@@ -321,6 +407,7 @@
 				A25F124824C866B50023BC9F /* SalahTracker */,
 				A25F125E24C866BA0023BC9F /* SalahTrackerTests */,
 				A25F126924C866BA0023BC9F /* SalahTrackerUITests */,
+				A28796E324DD5A66003CD152 /* NextPrayerDue */,
 			);
 		};
 /* End PBXProject section */
@@ -347,6 +434,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A28796E224DD5A66003CD152 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A28796EC24DD5A66003CD152 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +509,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A5B5A405C8BBC6E172348A11 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NextPrayerDue-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CDDBC2E51026D87E57578C81 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -470,6 +587,7 @@
 				A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */,
 				A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */,
 				A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */,
+				A28796F924DD6072003CD152 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +607,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A28796E024DD5A66003CD152 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A287970024DD6B71003CD152 /* TodayViewController.swift in Sources */,
+				A28796FF24DD6305003CD152 /* Prayer.swift in Sources */,
+				A28796FE24DD6303003CD152 /* PrayerTiming.swift in Sources */,
+				A28796FD24DD62EF003CD152 /* NetworkManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -501,6 +630,11 @@
 			isa = PBXTargetDependency;
 			target = A25F124824C866B50023BC9F /* SalahTracker */;
 			targetProxy = A25F126B24C866BA0023BC9F /* PBXContainerItemProxy */;
+		};
+		A28796EF24DD5A66003CD152 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A28796E324DD5A66003CD152 /* NextPrayerDue */;
+			targetProxy = A28796EE24DD5A66003CD152 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -519,6 +653,14 @@
 				A25F125824C866BA0023BC9F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A28796EA24DD5A66003CD152 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A28796EB24DD5A66003CD152 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -642,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8CF6F82F9A3D56D1B593907B /* Pods-SalahTracker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SalahTracker/Info.plist;
@@ -661,6 +804,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAC8A19A6F4E6A0A9A16680E /* Pods-SalahTracker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SalahTracker/Info.plist;
@@ -760,6 +904,44 @@
 			};
 			name = Release;
 		};
+		A28796F224DD5A66003CD152 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 832827CEEDE9DF26757B0A9C /* Pods-NextPrayerDue.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NextPrayerDue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTracker.NextPrayerDue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A28796F324DD5A66003CD152 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 015018C24A3217596383AEC8 /* Pods-NextPrayerDue.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NextPrayerDue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.abdulwahab.SalahTracker.NextPrayerDue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -795,6 +977,15 @@
 			buildConfigurations = (
 				A25F127A24C866BA0023BC9F /* Debug */,
 				A25F127B24C866BA0023BC9F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A28796F424DD5A66003CD152 /* Build configuration list for PBXNativeTarget "NextPrayerDue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A28796F224DD5A66003CD152 /* Debug */,
+				A28796F324DD5A66003CD152 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
