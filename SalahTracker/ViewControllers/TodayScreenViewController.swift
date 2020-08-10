@@ -121,8 +121,10 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
             return cell
         }
         if errorStatus == 0 {
-            if currentTime < prayerTimes[indexPath.row] {
-                status = PrayType.notYetDue
+            if status == PrayType.noRecord {
+                if currentTime < prayerTimes[indexPath.row] {
+                    status = PrayType.notYetDue
+                }
             }
         }
         switch status {
