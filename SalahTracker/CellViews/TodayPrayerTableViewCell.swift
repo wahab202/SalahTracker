@@ -70,4 +70,33 @@ class TodayPrayerTableViewCell: UITableViewCell {
             realm.add(prayer)
         }
     }
+    
+    func setupCell(index: Int, prayerNamesArray: [String], prayerTimes: [Date]!, errorStatus: Int, status: PrayType, dateFormatter: DateFormatter) {
+        var mutableStatus = status
+        let currentTime = Date()
+        self.todayPrayerLabel.text = prayerNamesArray[index]
+        if prayerTimes == nil {
+            self.statusLabel.text = errorStatus == 0 ? "Loading..." : ""
+            self.statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            self.selectionButtonsView.isHidden = true
+            return
+        }
+        if errorStatus == 0 {
+            if mutableStatus == PrayType.noRecord {
+                if currentTime < prayerTimes[index] {
+                    mutableStatus = PrayType.notYetDue
+                }
+            }
+        }
+        switch mutableStatus {
+        case .prayed:
+            self.setStatus(status: PrayType.prayed, dueTime: "")
+        case .qaza:
+            self.setStatus(status: PrayType.qaza, dueTime: "")
+        case .noRecord:
+            self.setStatus(status: PrayType.noRecord, dueTime: "")
+        case .notYetDue:
+            self.setStatus(status: PrayType.notYetDue, dueTime: errorStatus == 0 ? dateFormatter.string(from: prayerTimes[index]) : "")
+        }
+    }
 }

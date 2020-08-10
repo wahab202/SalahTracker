@@ -36,25 +36,8 @@ class RecordScreenViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecordTableViewCell.identifier) as! RecordTableViewCell
         let dateOfRecord = Calendar.current.date(from: DateComponents(year: now.year, month: now.month, day: now.day! - indexPath.row))!
-        let prayerList = getPrayersFromDatabase(ofDate: dateOfRecord)
-        let prayed = prayerList.filter { $0.status == PrayType.prayed.rawValue }
-        let qazad = prayerList.filter { $0.status == PrayType.qaza.rawValue }
-        if prayed.count == 0, qazad.count == 0 {
-            cell.prayerDetailsLabel.text = "No Record Found."
-        } else {
-            cell.prayerDetailsLabel.text = String(qazad.count) + " Qaza, " + String(prayed.count) + " Prayed"
-        }
-        if Calendar.current.isDate(dateOfRecord, inSameDayAs: Date()) {
-            cell.recordDateLabel.text = "Today"
-        } else {
-            cell.recordDateLabel.text = dateFormatter.string(from: dateOfRecord)
-        }
+        let prayerList = DatabaseManager.getPrayersFromDatabase(ofDate: dateOfRecord)
+        cell.setupCell(index: indexPath.row, prayerList: prayerList, dateFormatter: dateFormatter, dateOfRecord: dateOfRecord)
         return cell
-    }
-    
-    func getPrayersFromDatabase(ofDate date:Date) -> [Prayer] {
-        let prayerList = realm.objects(Prayer.self)
-        let prayers = prayerList.filter { Calendar.current.isDate($0.date, inSameDayAs: date)}
-        return Array(prayers)
     }
 }

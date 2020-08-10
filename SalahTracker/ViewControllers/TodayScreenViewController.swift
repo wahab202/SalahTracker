@@ -73,77 +73,32 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func resetPrayersButtonPressed(_ sender: UIButton) {
         let alert = UIAlertController(title: "Reset Prayers", message: "How many prayers do you want to reset ?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Reset All", style: UIAlertAction.Style.default, handler: { (action) in
-            self.resetAllPrayersFromDatabase()
+            DatabaseManager.resetAllPrayersFromDatabase()
             alert.dismiss(animated: true, completion: nil)
+            self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Reset Today", style: UIAlertAction.Style.default, handler: { (action) in
-            self.resetTodayPrayersFromDatabase()
+            DatabaseManager.resetTodayPrayersFromDatabase()
             alert.dismiss(animated: true, completion: nil)
+            self.tableView.reloadData()
         }))
         self.present(alert,animated: true,completion: nil)
         
     }
     
-    func resetAllPrayersFromDatabase(){
-        try! self.realm.write {
-            self.realm.deleteAll()
-        }
-        self.tableView.reloadData()
-    }
-    
-    func resetTodayPrayersFromDatabase(){
-        let prayersToBeDeleted = realm.objects(Prayer.self).filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
-        try! realm.write {
-            realm.delete(prayersToBeDeleted)
-        }
-        self.tableView.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return prayerNamesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var status = getTodaysPrayerStatusFromDatabase(for: prayerNamesArray[indexPath.row])
+        let status = DatabaseManager.getTodaysPrayerStatusFromDatabase(for: prayerNamesArray[indexPath.row])
         let cell = tableView.dequeueReusableCell(withIdentifier: TodayPrayerTableViewCell.identifier) as! TodayPrayerTableViewCell
-        cell.todayPrayerLabel.text = prayerNamesArray[indexPath.row]
-        if prayerTimes == nil {
-            cell.statusLabel.text = errorStatus == 0 ? "Loading..." : ""
-            cell.statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-            cell.selectionButtonsView.isHidden = true
-            return cell
-        }
+        cell.setupCell(index: indexPath.row, prayerNamesArray: prayerNamesArray, prayerTimes: prayerTimes, errorStatus: errorStatus, status: status, dateFormatter: dateFormatter)
         if indexPath.row == 1 || indexPath.row == 5 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCellTodayViewController
-            cell.timeLabel.text = prayerNamesArray[indexPath.row]
-            cell.iconLabel.text = errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : ""
-            cell.setColor(label: prayerNamesArray[indexPath.row])
+            cell.setupCell(prayerTimes: prayerTimes, prayerNamesArray: prayerNamesArray, errorStatus: errorStatus, dateFormatter: dateFormatter, index: indexPath.row)
             return cell
-        }
-        if errorStatus == 0 {
-            if status == PrayType.noRecord {
-                if currentTime < prayerTimes[indexPath.row] {
-                    status = PrayType.notYetDue
-                }
-            }
-        }
-        switch status {
-        case .prayed:
-            cell.setStatus(status: PrayType.prayed, dueTime: "")
-        case .qaza:
-            cell.setStatus(status: PrayType.qaza, dueTime: "")
-        case .noRecord:
-            cell.setStatus(status: PrayType.noRecord, dueTime: "")
-        case .notYetDue:
-            cell.setStatus(status: PrayType.notYetDue, dueTime: errorStatus == 0 ? dateFormatter.string(from: prayerTimes[indexPath.row]) : "")
         }
         return cell
     }
-    
-    func getTodaysPrayerStatusFromDatabase(for prayerName:String) -> PrayType {
-        let prayerList = realm.objects(Prayer.self)
-        let prayer = prayerList.filter { $0.id == prayerName }.filter { Calendar.current.isDate($0.date, inSameDayAs:Date())}
-        return PrayType(rawValue: prayer.first?.status ?? 3) ?? PrayType.noRecord
-    }
-
 }

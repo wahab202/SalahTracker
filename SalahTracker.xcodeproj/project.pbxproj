@@ -28,6 +28,7 @@
 		A28796FE24DD6303003CD152 /* PrayerTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621324D16CEC00686A27 /* PrayerTiming.swift */; };
 		A28796FF24DD6305003CD152 /* Prayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A276DDE824CEEA3800339B55 /* Prayer.swift */; };
 		A287970024DD6B71003CD152 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28796E824DD5A66003CD152 /* TodayViewController.swift */; };
+		A287970424E1736A003CD152 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A287970324E1736A003CD152 /* DatabaseManager.swift */; };
 		A29F621024D1451300686A27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F620F24D1451300686A27 /* NetworkManager.swift */; };
 		A29F621424D16CEC00686A27 /* PrayerTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621324D16CEC00686A27 /* PrayerTiming.swift */; };
 		A29F621624D190BE00686A27 /* EventCellTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */; };
@@ -105,6 +106,7 @@
 		A28796E824DD5A66003CD152 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		A28796EB24DD5A66003CD152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		A28796ED24DD5A66003CD152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A287970324E1736A003CD152 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A29F620F24D1451300686A27 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A29F621324D16CEC00686A27 /* PrayerTiming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTiming.swift; sourceTree = "<group>"; };
 		A29F621524D190BE00686A27 /* EventCellTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellTodayViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		A25F124B24C866B50023BC9F /* SalahTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A287970524E175EB003CD152 /* Database */,
 				A29F621A24D7F02A00686A27 /* Network */,
 				A29F621924D7F01500686A27 /* Prayers */,
 				A29F621824D7EFF900686A27 /* CellViews */,
@@ -233,6 +236,14 @@
 				A28796ED24DD5A66003CD152 /* Info.plist */,
 			);
 			path = NextPrayerDue;
+			sourceTree = "<group>";
+		};
+		A287970524E175EB003CD152 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A287970324E1736A003CD152 /* DatabaseManager.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		A29F621724D7EFD700686A27 /* ViewControllers */ = {
@@ -585,6 +596,7 @@
 				A29F621024D1451300686A27 /* NetworkManager.swift in Sources */,
 				A29F621424D16CEC00686A27 /* PrayerTiming.swift in Sources */,
 				A250D05324CAD90F002845AA /* TodayScreenViewController.swift in Sources */,
+				A287970424E1736A003CD152 /* DatabaseManager.swift in Sources */,
 				A250D05524CAD9B9002845AA /* RecordScreenViewController.swift in Sources */,
 				A25F124D24C866B50023BC9F /* AppDelegate.swift in Sources */,
 				A28796F924DD6072003CD152 /* TodayViewController.swift in Sources */,
