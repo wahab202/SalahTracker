@@ -48,7 +48,7 @@ class TodayPrayerTableViewCell: UITableViewCell {
             selectionButtonsView.isHidden = true
         case .notYetDue:
             statusLabel.text = "Starts at " + dueTime
-            statusLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            statusLabel.textColor = UIColor(named: "general")
             selectionButtonsView.isHidden = true
         case .noRecord:
             statusLabel.text = ""

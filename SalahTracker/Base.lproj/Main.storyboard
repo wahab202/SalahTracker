@@ -244,6 +244,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZ5-8R-Cfe">
+                                <rect key="frame" x="298" y="162" width="96" height="30"/>
+                                <state key="normal" title="Show delayed"/>
+                                <connections>
+                                    <action selector="viewTypeTapped:" destination="BLk-FM-gRW" eventType="touchUpInside" id="Vk2-gi-uzW"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHh-vY-843">
                                 <rect key="frame" x="18" y="162" width="82" height="30"/>
                                 <state key="normal" title="Show graph"/>
@@ -251,7 +258,7 @@
                                     <action selector="showGraphTapped:" destination="BLk-FM-gRW" eventType="touchUpInside" id="hmL-k3-zMy"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Va-88-ccB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0Va-88-ccB">
                                 <rect key="frame" x="0.0" y="192" width="414" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -296,8 +303,12 @@
                         <viewLayoutGuide key="safeArea" id="elu-NE-hnc"/>
                         <color key="backgroundColor" name="background"/>
                         <constraints>
+                            <constraint firstItem="elu-NE-hnc" firstAttribute="trailing" secondItem="AZ5-8R-Cfe" secondAttribute="trailing" constant="20" id="1wL-ul-DwE"/>
+                            <constraint firstItem="AZ5-8R-Cfe" firstAttribute="top" secondItem="rbs-Kb-U9h" secondAttribute="bottom" constant="33" id="Hl5-7Z-FVG"/>
                             <constraint firstItem="0Va-88-ccB" firstAttribute="top" secondItem="aHh-vY-843" secondAttribute="bottom" id="KE0-Ag-Jy9"/>
+                            <constraint firstItem="0Va-88-ccB" firstAttribute="top" secondItem="AZ5-8R-Cfe" secondAttribute="bottom" id="O9j-6C-LtI"/>
                             <constraint firstItem="elu-NE-hnc" firstAttribute="trailing" secondItem="0Va-88-ccB" secondAttribute="trailing" id="RKI-58-Xp3"/>
+                            <constraint firstItem="AZ5-8R-Cfe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="aHh-vY-843" secondAttribute="trailing" constant="248" id="RNU-Ko-1CZ"/>
                             <constraint firstItem="0Va-88-ccB" firstAttribute="leading" secondItem="elu-NE-hnc" secondAttribute="leading" id="RVd-yh-9r8"/>
                             <constraint firstItem="aHh-vY-843" firstAttribute="top" secondItem="rbs-Kb-U9h" secondAttribute="bottom" constant="33" id="S79-J3-9Ms"/>
                             <constraint firstItem="elu-NE-hnc" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="aHh-vY-843" secondAttribute="trailing" constant="314" id="ZJC-Lp-xSb"/>
@@ -311,6 +322,7 @@
                     <connections>
                         <outlet property="showGraphButton" destination="aHh-vY-843" id="VEX-bB-BII"/>
                         <outlet property="tableview" destination="0Va-88-ccB" id="bwX-vO-enj"/>
+                        <outlet property="viewTypeButton" destination="AZ5-8R-Cfe" id="Uje-AN-dJX"/>
                         <segue destination="5zi-Kt-eMw" kind="show" identifier="moveToGraph" id="5vT-pb-aFd"/>
                     </connections>
                 </viewController>
@@ -508,7 +520,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-MG-AtH">
                                                     <rect key="frame" x="357.5" y="25" width="36.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" name="general"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RFh-0t-Ijv">

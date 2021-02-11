@@ -28,27 +28,40 @@ class RecordTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(index: Int, prayerList: [Prayer], dateFormatter: DateFormatter, dateOfRecord: Date) {
+    func setupCell(index: Int, prayerList: [Prayer], dateFormatter: DateFormatter, dateOfRecord: Date, viewType: ViewType) {
         prayedCount = 0
         missedCount = 0
         delayedCount = 0
         recordFound = false
         let prayed = prayerList.filter { $0.status == PrayType.prayed.rawValue }
         let qazad = prayerList.filter { $0.status == PrayType.qaza.rawValue }
+        missedCount = missedCount + (5 - prayed.count - qazad.count)
         if prayed.count == 0, qazad.count == 0 {
             self.prayerDetailsLabel.text = "No history found."
         } else {
-            self.prayerDetailsLabel.text = String(qazad.count) + " delayed, " + String(prayed.count) + " on time."
+            if viewType == .prayed {
+                self.prayerDetailsLabel.text = String(prayed.count) + " on time."
+            } else if viewType == .delayed {
+                self.prayerDetailsLabel.text = String(qazad.count) + " delayed."
+            } else if viewType == .missed {
+                self.prayerDetailsLabel.text = String(missedCount) + " missed."
+            }
             prayedCount = prayedCount + prayed.count
             delayedCount = delayedCount + qazad.count
-            missedCount = missedCount + (5 - prayed.count - qazad.count)
             recordFound = true
         }
         if Calendar.current.isDate(dateOfRecord, inSameDayAs: Date()) {
             self.recordDateLabel.text = "Today"
+            if prayedCount == 0 && delayedCount == 0 {
+                self.prayerDetailsLabel.text = "No prayers marked yet"
+            }
             missedCount = missedCount - (5 - prayed.count - qazad.count)
+            if viewType == .missed {
+                self.prayerDetailsLabel.text = String(missedCount) + " missed."
+            }
         } else {
             self.recordDateLabel.text = dateFormatter.string(from: dateOfRecord)
+            self.prayerDetailsLabel.text = self.prayerDetailsLabel.text! + ""
         }
         if !recordFound {
             self.prayerDetailsLabel.text = ""
