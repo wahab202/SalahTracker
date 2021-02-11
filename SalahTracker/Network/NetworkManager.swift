@@ -17,10 +17,8 @@ enum RequestMethod: Int {
 }
 
 class NetworkManager {
-    
-    static var apiLink = "http://api.aladhan.com/v1/calendar?latitude=33.684422&longitude=73.047882&method=2&month="
-    
-    static func getPrayerTimingsFromAPI(method:RequestMethod, completionHandler: @escaping (PrayerTiming?,Int?) -> ()) {
+
+    static func getPrayerTimingsFromAPI(apiLink: String, method:RequestMethod, completionHandler: @escaping (PrayerTiming?,Int?) -> ()) {
         let date = Date()
         let calendar = Calendar.current
         let mutatedLink = apiLink + String(calendar.component(.month, from: date)) + "&year=" + String(calendar.component(.year, from: date))
@@ -34,6 +32,7 @@ class NetworkManager {
                             let todayData = json["data"][Int(calendar.component(.month, from: date))]["timings"].rawString()
                             let todayJsonData = todayData?.data(using: .utf8)!
                             let timings = try! JSONDecoder().decode(PrayerTiming.self, from: todayJsonData!)
+                            print(timings as PrayerTiming)
                             completionHandler(timings as PrayerTiming,0)
                         } catch {
                             completionHandler(PrayerTiming(),1)

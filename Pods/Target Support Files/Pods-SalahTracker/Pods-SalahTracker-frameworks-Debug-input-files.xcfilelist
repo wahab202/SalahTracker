@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-SalahTracker/Pods-SalahTracker-frameworks
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/Codable-Kit/Codable_Kit.framework
+${BUILT_PRODUCTS_DIR}/PieCharts/PieCharts.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

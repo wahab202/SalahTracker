@@ -12,6 +12,7 @@ target 'SalahTracker' do
   pod 'AFNetworking'
   pod 'SwiftyJSON'
   pod 'Codable-Kit'
+  pod 'PieCharts'
 
   target 'SalahTrackerTests' do
     inherit! :search_paths

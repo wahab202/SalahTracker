@@ -39,12 +39,12 @@ class TodayPrayerTableViewCell: UITableViewCell {
     func setStatus(status: PrayType, dueTime: String) {
         switch status {
         case .prayed:
-            statusLabel.text = "Prayed in time"
-            statusLabel.textColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+            statusLabel.text = "On time"
+            statusLabel.textColor = #colorLiteral(red: 0.5052400827, green: 0.7810568213, blue: 0.5157173276, alpha: 1)
             selectionButtonsView.isHidden = true
         case .qaza:
-            statusLabel.text = "Prayer was Qaza"
-            statusLabel.textColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            statusLabel.text = "Delayed"
+            statusLabel.textColor = #colorLiteral(red: 1, green: 0.4590665102, blue: 0.4428348541, alpha: 1)
             selectionButtonsView.isHidden = true
         case .notYetDue:
             statusLabel.text = "Starts at " + dueTime

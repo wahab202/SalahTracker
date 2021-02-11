@@ -16,15 +16,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let prayerNamesArray = ["Fajr","Sunrise ☀️","Dhuhr","Asr","Maghrib","Sunset 🌙","Isha"]
     let dateFormatter = DateFormatter()
+    let defaults = UserDefaults.standard
+    var apiLink = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dateFormatter.dateFormat = "hh:mm aa"
+        apiLink = "http://api.aladhan.com/v1/calendar?latitude="+defaults.string(forKey: "latitude")!+"&longitude="+defaults.string(forKey: "longitude")!+"&method="
+        apiLink = apiLink + String(defaults.integer(forKey: "method")) + "&month="
         setNextPrayerTime()
     }
     
     func setNextPrayerTime()  {
-        NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings,connectionError) in
+        NetworkManager.getPrayerTimingsFromAPI(apiLink: apiLink, method: RequestMethod.alamofire) { (timings,connectionError) in
             if connectionError == 0 {
                 timings?.removeExtraCharacters()
                 let prayerTimes = timings?.getTimingByDateArray()

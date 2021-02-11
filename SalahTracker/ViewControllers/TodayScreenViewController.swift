@@ -18,10 +18,8 @@ enum PrayType: Int {
 
 class TodayScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var connectionFailedView: UIView!
-    @IBOutlet weak var retryApiRequestButton: UIButton!
     
     let prayerNamesArray = ["Fajr","Sunrise ☀️","Dhuhr","Asr","Maghrib","Sunset 🌙","Isha"]
     let dateFormatter = DateFormatter()
@@ -30,6 +28,7 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
     let defaults = UserDefaults.standard
     let currentTime = Date()
     let timings = PrayerTiming()
+    var apiLink = ""
     var errorStatus = 0
     
     override func viewDidLoad() {
@@ -37,53 +36,52 @@ class TodayScreenViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        usernameLabel.text = "Hi, " + (defaults.string(forKey: "Name") ?? "")
         dateFormatter.dateFormat = "hh:mm aa"
+        locationLabel.text = "in " + defaults.string(forKey: "locality")!
+        apiLink = "http://api.aladhan.com/v1/calendar?latitude="+defaults.string(forKey: "latitude")!+"&longitude="+defaults.string(forKey: "longitude")!+"&method="
+        apiLink = apiLink + String(defaults.integer(forKey: "method")) + "&month="
         getPrayerTimingsFromApi()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        if defaults.integer(forKey: "needsRefresh") == 1 {
+            locationLabel.text = "in " + defaults.string(forKey: "locality")!
+            apiLink = "http://api.aladhan.com/v1/calendar?latitude="+defaults.string(forKey: "latitude")!+"&longitude="+defaults.string(forKey: "longitude")!+"&method="
+            apiLink = apiLink + String(defaults.integer(forKey: "method")) + "&month="
+            getPrayerTimingsFromApi()
+        }
     }
     
     func getPrayerTimingsFromApi() {
         // The mothod below uses closure as a completion handler to handle the async request to prayer timing API
-        NetworkManager.getPrayerTimingsFromAPI(method: RequestMethod.alamofire) { (timings,connectionError) in
+        NetworkManager.getPrayerTimingsFromAPI(apiLink: apiLink,method: RequestMethod.alamofire) { (timings,connectionError) in
             if connectionError == 0 {
                 timings?.removeExtraCharacters() // Removes extra characters (time format) from the string for easier subscripting
                 self.prayerTimes = timings?.getTimingByDateArray()
-                self.connectionFailedView.isHidden = true
                 self.errorStatus = 0
             } else {
                 self.errorStatus = 1
                 self.prayerTimes = [Date()]
-                self.retryApiRequestButton.setTitle("Retry", for: .normal)
-                self.retryApiRequestButton.isEnabled = true
-                self.connectionFailedView.isHidden = false
+                self.handleConnectionError()
             }
             self.tableView.reloadData()
         }
     }
     
-    @IBAction func retryApiRequestButtonPressed(_ sender: UIButton) {
-        retryApiRequestButton.setTitle("Retrying", for: .normal)
-        retryApiRequestButton.isEnabled = false
-        errorStatus = 0
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0 ) {
-            self.getPrayerTimingsFromApi()
-        }
-    }
-    
-    @IBAction func resetPrayersButtonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Reset Prayers", message: "How many prayers do you want to reset ?", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Reset All", style: UIAlertAction.Style.default, handler: { (action) in
-            DatabaseManager.resetAllPrayersFromDatabase()
+    func handleConnectionError() {
+        let alert = UIAlertController(title: "Connection Error", message: "Oops! Couldn't get salah timings. Please check your connection.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Retry", style: UIAlertAction.Style.default, handler: { (action) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0 ) {
+                self.getPrayerTimingsFromApi()
+            }
             alert.dismiss(animated: true, completion: nil)
-            self.tableView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Reset Today", style: UIAlertAction.Style.default, handler: { (action) in
-            DatabaseManager.resetTodayPrayersFromDatabase()
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
-            self.tableView.reloadData()
         }))
         self.present(alert,animated: true,completion: nil)
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

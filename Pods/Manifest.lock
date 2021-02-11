@@ -16,6 +16,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (5.2.2)
   - Codable-Kit (0.1.0)
+  - PieCharts (0.0.7)
   - Realm (5.3.2):
     - Realm/Headers (= 5.3.2)
   - Realm/Headers (5.3.2)
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - AFNetworking
   - Alamofire
   - Codable-Kit
+  - PieCharts
   - RealmSwift
   - SwiftyJSON
   - TPKeyboardAvoidingSwift
@@ -37,6 +39,7 @@ SPEC REPOS:
     - AFNetworking
     - Alamofire
     - Codable-Kit
+    - PieCharts
     - Realm
     - RealmSwift
     - SwiftyJSON
@@ -46,11 +49,12 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Codable-Kit: 7b3af5cacc501b65d103a920393853ec12ce9836
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
   Realm: c6794276ca8884808ba168a22f9d71362b170b85
   RealmSwift: 42ec6cec3170aeeda407f797f07268a7d055ebc7
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TPKeyboardAvoidingSwift: ce1a75e0bc3af6b485f8bfa1d0a8320cfc565851
 
-PODFILE CHECKSUM: 9df85565a46fc80cabd3f034e3d08879fbfc1831
+PODFILE CHECKSUM: fd0d10dc4d8c64fc29eb6f993759a2af4a6c4da3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
