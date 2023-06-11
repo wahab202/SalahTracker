@@ -34,7 +34,7 @@ class RecordScreenViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         showGraphButton.isHidden = true
-        tableview.delegate = selfdcdc
+        tableview.delegate = self
         tableview.dataSource = self
         tableview.tableFooterView = UIView()
         dateFormatter.dateFormat = "dd-MM-yyyy"
